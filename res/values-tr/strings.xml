@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">"Mesajlaşma"</string>
+    <string name="new_message">"Yeni mesaj"</string>
+    <string name="create_new_message">"Yeni mesaj oluştur"</string>
+    <string name="menu_call_back">"Ara <xliff:g id="NAME">%s</xliff:g>"</string>
+    <string name="menu_send_email">"E-posta gönder: <xliff:g id="NAME">%s</xliff:g>"</string>
+    <string name="menu_compose_new">"Oluştur"</string>
+    <string name="menu_preferences">"Ayarlar"</string>
+    <string name="menu_add_address_to_contacts">"Kişilere Ekle: <xliff:g id="NAME">%s</xliff:g>"</string>
+    <!-- no translation found for menu_call (5877123227307074690) -->
+    <skip />
+    <string name="menu_delete_all">"İş parçacıklarını sil"</string>
+    <!-- no translation found for menu_delete (1851666911396479006) -->
+    <skip />
+    <string name="menu_undelivered_messages">"İletilmemiş mesajlar"</string>
+    <!-- no translation found for menu_view (7448852683948080108) -->
+    <skip />
+    <string name="refreshing">"Yenileniyor..."</string>
+    <string name="has_draft">"Taslak"</string>
+    <!-- no translation found for broadcast_from_to (1804605929273213017) -->
+    <skip />
+    <string name="anonymous_recipient">"Adsız"</string>
+    <string name="no_subject_view">"(Konu yok)"</string>
+    <string name="messagelist_sender_self">"Ben"</string>
+    <string name="view_picture">"Resim görüntüle"</string>
+    <string name="view_slideshow">"Slayt gösterisini görüntüle"</string>
+    <string name="view_message_details">"Mesaj ayrıntılarını görüntüle"</string>
+    <string name="view_delivery_report">"Raporu görüntüle"</string>
+    <string name="delete_message">"Mesajı sil"</string>
+    <string name="sent_on">"Gönderildi: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="expire_on">"Sona erme tarihi: <xliff:g id="DATE">%s</xliff:g>"</string>
+    <string name="kilobyte">"KB"</string>
+    <string name="undelivered_msg_dialog_title">"İletilmemiş mesaj"</string>
+    <string name="undelivered_msg_dialog_body">"Bu mesaj gönderilemiyor."\n"Yapılan deneme: <xliff:g id="MESSAGE">%s</xliff:g>."</string>
+    <string name="undelivered_sms_dialog_body">"Bu mesaj gönderilemiyor."</string>
+    <string name="delete_thread">"İş parçacığını sil"</string>
+    <string name="menu_forward">"İlet"</string>
+    <string name="download">"İndir"</string>
+    <string name="downloading">"İndiriyor"</string>
+    <string name="inline_subject">"&lt;Konu: <xliff:g id="SUBJECT">%s</xliff:g>&gt;"</string>
+    <string name="drm_protected_text">"* DRM korumalı metin *"</string>
+    <string name="insufficient_drm_rights">"DRM haklarının yetersiz olduğu tespit edildi."</string>
+    <string name="copy_message_text">"Mesaj metnini kopyala"</string>
+    <string name="message_options">"Mesaj seçenekleri"</string>
+    <string name="done">"Bitti"</string>
+    <string name="move_up">"Yukarı taşı"</string>
+    <string name="move_down">"Aşağı taşı"</string>
+    <string name="remove_slide">"Slaytı kaldır"</string>
+    <string name="add_slide">"Slayt ekle"</string>
+    <string name="add_slide_hint">"Yeni slayt oluşturmak için seç"</string>
+    <string name="discard_slideshow">"Slayt gösterisini at"</string>
+    <!-- no translation found for slide_show_part (5077675385448696846) -->
+    <skip />
+    <string name="remove_text">"Metni kaldır"</string>
+    <string name="add_picture">"Resim ekle"</string>
+    <string name="remove_picture">"Resmi kaldır"</string>
+    <string name="add_music">"Müzik ekle"</string>
+    <string name="remove_music">"Müziği kaldır"</string>
+    <string name="add_video">"Video ekle"</string>
+    <string name="remove_video">"Videoyu kaldır"</string>
+    <string name="compose_title">"Oluştur"</string>
+    <string name="to_hint">"Kime"</string>
+    <string name="subject_hint">"Konu"</string>
+    <string name="add_attachment">"Ekle"</string>
+    <string name="add_subject">"Konu ekle"</string>
+    <string name="discard">"At"</string>
+    <string name="view">"Görüntüle"</string>
+    <string name="replace">"Değiştir"</string>
+    <string name="remove">"Kaldır"</string>
+    <string name="send">"Gönder"</string>
+    <string name="all_threads">"Tüm iş parçacıkları"</string>
+    <!-- no translation found for type_to_compose_text_enter_to_send (7553404984078924360) -->
+    <skip />
+    <string name="open_keyboard_to_compose_message">"Mesajı oluşturmak için tuş takımını açın"</string>
+    <string name="image_too_large">"Resim çok büyük"</string>
+    <string name="ask_for_automatically_resize">"Göndermeden önce resim otomatik olarak yeniden boyutlandırılsın mı?"</string>
+    <string name="compressing">"Sıkıştırılıyor..."</string>
+    <string name="unsupported_media_format">"Desteklenmeyen <xliff:g id="NAME">%1$s</xliff:g> biçimi"</string>
+    <string name="select_different_media">"Farklı bir <xliff:g id="NAME">%1$s</xliff:g> seçin."</string>
+    <string name="exceed_message_size_limitation">"Mesaj boyutu sınırlamasına ulaşıldı"</string>
+    <string name="failed_to_add_media">"Maalesef, bu <xliff:g id="NAME">%1$s</xliff:g> öğesini mesajınıza ekleyemezsiniz."</string>
+    <string name="failed_to_resize_image">"Resim yeniden boyutlandırılmadı."</string>
+    <string name="resize_image_error_information">"Maalesef, bu resim yeniden boyutlandırılsa bile göndermek için çok büyük."</string>
+    <string name="forward_prefix">"İlet: "</string>
+    <string name="discard_message">"At"</string>
+    <string name="discard_message_reason">"Mesajınızın geçerli alıcısı olmadığı için mesajınız atılacak."</string>
+    <string name="has_invalid_recipient">"Geçersiz alıcılar: &lt;<xliff:g id="NAME">%1$s</xliff:g>&gt;"</string>
+    <string name="invalid_recipient_message">"Lütfen alıcıları düzeltin aksi takdirde mesajı alamayacaklar"</string>
+    <string name="cannot_send_message">"Bu mesaj gönderilemiyor"</string>
+    <string name="cannot_send_message_reason">"Mesajınızın geçerli alıcıları yok."</string>
+    <string name="cannot_forward_drm_obj">"Mesajda bulunan DRM nesnesi iletilemiyor."</string>
+    <string name="converting_to_picture_message">"MMS mesajına dönüştürülüyor..."</string>
+    <string name="converting_to_text_message">"SMS mesajına dönüştürülüyor..."</string>
+    <string name="cannot_add_slide_anymore">"Daha fazla slayt eklenemiyor."</string>
+    <string name="cannot_save_message">"Mesaj kaydedilemiyor."</string>
+    <string name="cannot_load_message">"Mesaj yüklenemiyor."</string>
+    <string name="message_saved_as_draft">"Mesaj taslak olarak kaydedildi"</string>
+    <string name="cannot_play_audio">"Ses çalınamıyor."</string>
+    <string name="preview">"Ön izle"</string>
+    <string name="preview_slideshow">"Ön izle"</string>
+    <string name="replace_image">"Resmi değiştir"</string>
+    <string name="duration_sec">"Süre (<xliff:g id="DURATION">%s</xliff:g> sn)"</string>
+    <string name="duration_selector_title">"Slayt süresi "</string>
+    <string name="layout_selector_title">"Slayt gösterisi düzeni "</string>
+    <string name="layout_top">"Düzen (üst)"</string>
+    <string name="layout_bottom">"Düzen (alt)"</string>
+    <string name="type_to_compose_text_or_leave_blank">"Metin oluşturmak için yazın veya boş bırakın"</string>
+    <string name="secs">"saniye"</string>
+  <string-array name="select_dialog_items">
+    <item>"1 saniye"</item>
+    <item>"2 saniye"</item>
+    <item>"3 saniye"</item>
+    <item>"4 saniye"</item>
+    <item>"5 saniye"</item>
+    <item>"6 saniye"</item>
+    <item>"7 saniye"</item>
+    <item>"8 saniye"</item>
+    <item>"9 saniye"</item>
+    <item>"10 saniye"</item>
+    <item>"Diğer…"</item>
+  </string-array>
+    <string name="menu_view_contact">"Kişiyi görüntüle"</string>
+    <string name="menu_add_to_contacts">"Kişilere Ekle"</string>
+    <string name="hidden_sender_address">"Gönderen adresi gizli"</string>
+    <string name="yes">"Tamam"</string>
+    <string name="no">"İptal"</string>
+    <string name="play">"Oynat"</string>
+    <string name="edit">"Düzenle"</string>
+    <string name="resize">"Yeniden boyutlandır"</string>
+    <string name="try_to_send">"Göndermeyi dene"</string>
+    <string name="preferences_title">"Ayarlar"</string>
+    <string name="restore_default">"Varsayılan ayarları geri yükle"</string>
+    <string name="pref_notification_settings_title">"Bildirim ayarları"</string>
+    <string name="pref_mms_settings_title">"MMS ayarları"</string>
+    <string name="pref_sms_settings_title">"SMS ayarları"</string>
+    <string name="pref_summary_manage_sim_messages">"SIM kartınıza kayıtlı mesajları yönetin"</string>
+    <string name="pref_summary_mms_delivery_reports">"Gönderdiğiniz her mesaj için bir iletim raporu isteyin"</string>
+    <string name="pref_summary_mms_read_reports">"Gönderdiğiniz her mesaj için bir iletim raporu isteyin"</string>
+    <string name="pref_summary_sms_delivery_reports">"Gönderdiğiniz her mesaj için bir iletim raporu isteyin"</string>
+    <string name="pref_title_manage_sim_messages">"SIM kart mesajlarını yönet"</string>
+    <string name="pref_title_mms_delivery_reports">"İletim raporları"</string>
+    <string name="pref_title_mms_read_reports">"Raporları oku"</string>
+    <string name="pref_title_sms_delivery_reports">"İletim raporları"</string>
+    <string name="pref_title_notification_enabled">"Bildirimler"</string>
+    <string name="pref_summary_notification_enabled">"Durum çubuğunda mesaj bildirimlerini görüntüle"</string>
+    <string name="pref_title_notification_vibrate">"Titreşim"</string>
+    <string name="pref_summary_notification_vibrate">"Bildirildiğinde aynı zamanda titreştir"</string>
+    <string name="pref_title_notification_ringtone">"Zil sesi seç"</string>
+    <string name="pref_title_mms_auto_retrieval">"Otomatik al"</string>
+    <string name="pref_summary_mms_auto_retrieval">"Mesajları otomatik olarak al"</string>
+    <string name="pref_title_mms_retrieval_during_roaming">"Dolaşımda otomatik al"</string>
+    <string name="pref_summary_mms_retrieval_during_roaming">"Dolaşım sırasında mesajları otomatik olarak al"</string>
+    <string name="to_label">"Kime "</string>
+    <string name="confirm_dialog_title">"Sil"</string>
+    <string name="confirm_delete_conversation">"İş parçacığının tamamı silinecek."</string>
+    <string name="confirm_delete_all_conversations">"Tüm iş parçacıkları silinecek."</string>
+    <string name="confirm_delete_message">"Mesaj silinecek."</string>
+    <string name="confirm_delete_all_messages">"İş parçacığının tamamı silinecek."</string>
+    <!-- no translation found for confirm_delete_all_SIM_messages (65701806463341097) -->
+    <skip />
+    <!-- no translation found for confirm_delete_SIM_message (767624259182679915) -->
+    <skip />
+    <string name="cannot_get_details">"Ayrıntılar alınamıyor"</string>
+    <string name="message_details_title">"Mesaj ayrıntıları"</string>
+    <string name="message_type_label">"Türü: "</string>
+    <string name="text_message">"SMS mesajı"</string>
+    <string name="multimedia_message">"MMS mesajı"</string>
+    <string name="multimedia_notification">"MMS bildirimi"</string>
+    <string name="from_label">"Kimden: "</string>
+    <string name="to_address_label">"Hedef: "</string>
+    <string name="bcc_label">"Gizli: "</string>
+    <string name="sent_label">"Gönderildi: "</string>
+    <string name="received_label">"Alındı: "</string>
+    <string name="saved_label">"Kaydedildi: "</string>
+    <string name="subject_label">"Konu: "</string>
+    <string name="message_size_label">"Mesaj boyutu: "</string>
+    <string name="priority_label">"Öncelik: "</string>
+    <string name="priority_high">"Yüksek"</string>
+    <string name="priority_normal">"Normal"</string>
+    <string name="priority_low">"Düşük"</string>
+    <string name="message_class_label">"Mesaj sınıfı: "</string>
+    <string name="menu_edit">"Düzenle"</string>
+    <string name="menu_retry_sending">"Tekrar göndermeyi dene"</string>
+    <string name="menu_retry_sending_all">"Tümünü göndermeyi tekrar dene"</string>
+    <string name="menu_delete_messages">"Mesajları sil"</string>
+    <string name="retrying_dialog_body">"Bu mesaj <xliff:g id="MESSAGE">%s</xliff:g> bir bağlantı sorunu nedeniyle gönderilmedi."\n"Tekrar gönderilmeye çalışılıyor…"</string>
+    <string name="sim_copy_to_phone_memory">"Telefon hafızasına kaydet"</string>
+    <string name="sim_delete">"Sil"</string>
+    <string name="sim_manage_messages_title">"SIM karttaki SMS mesajları"</string>
+    <string name="sim_view">"Görüntüle"</string>
+    <string name="sim_empty">"SIM karta hiç mesaj yok."</string>
+    <string name="delivery_header_title">"Rapor"</string>
+    <string name="status_none">"(Yok)"</string>
+    <string name="status_pending">"Beklemede"</string>
+    <string name="status_read">"Oku"</string>
+    <string name="status_received">"Alındı"</string>
+    <string name="status_failed">"Başarısız"</string>
+    <string name="status_unread">"Okunmamış"</string>
+    <string name="status_rejected">"Reddedildi"</string>
+    <string name="recipient_label">"Alıcı: "</string>
+    <string name="status_label">"Durum: "</string>
+    <string name="attach_image">"Resimler"</string>
+    <!-- no translation found for attach_take_photo (4280601313184373837) -->
+    <skip />
+    <!-- no translation found for attach_video (4264272693501538294) -->
+    <skip />
+    <!-- no translation found for attach_record_video (3099814114743078615) -->
+    <skip />
+    <string name="attach_sound">"Ses"</string>
+    <string name="attach_record_sound">"Ses kaydet"</string>
+    <!-- no translation found for attach_slideshow (3497422151091037063) -->
+    <skip />
+    <string name="select_bottom_text">"Metin altta"</string>
+    <string name="select_top_text">"Metin üstte"</string>
+    <string name="notification_multiple">"<xliff:g id="COUNT">%s</xliff:g> okunmamış mesaj."</string>
+    <string name="notification_multiple_title">"Yeni mesaj"</string>
+    <!-- no translation found for notification_failed_multiple (4081781748475686236) -->
+    <skip />
+    <!-- no translation found for notification_failed_multiple_title (1112032024904397126) -->
+    <skip />
+    <string name="sim_full_title">"SIM kart dolu"</string>
+    <string name="sim_full_body">"Daha fazla yer açmak için bazı mesajları silin."</string>
+    <string name="type_audio">"ses"</string>
+    <string name="type_picture">"resim"</string>
+    <string name="type_video">"video"</string>
+    <string name="confirm">"Onayla"</string>
+    <string name="message_send_read_report">"Bir okundu raporu gönderilecek."</string>
+    <string name="message_queued">"Mesajınız şu anda gönderilemiyor. Servis kullanılabilir olduğunda gönderilecek."</string>
+    <string name="no_subject">"(Konu yok)"</string>
+    <string name="unknown_sender">"Bilinmeyen gönderici"</string>
+    <string name="dl_failure_notification">"<xliff:g id="SUBJECT">%s</xliff:g> mesajı <xliff:g id="FROM">%s</xliff:g> kaynağından indirilemedi."</string>
+    <string name="rate_limit_surpassed">"Onayla"</string>
+    <string name="confirm_rate_limit">"Çok sayıda multimedya mesajı gönderilmektedir. Sorun var mı?"</string>
+    <string name="message_download_failed_title">"Mesaj indirilmedi"</string>
+    <string name="message_send_failed_title">"Mesaj gönderilmedi"</string>
+    <string name="message_failed_body">"Mesajı önizlemek için seçin ve tekrar deneyin."</string>
+    <string name="download_later">"Şu an için indirilemiyor. Lütfen daha sonra tekrar deneyin."</string>
+    <string name="select_audio">"Ses seç"</string>
+    <string name="copy_to_sdcard">"Kopya SD karta eklendi"</string>
+    <string name="copy_to_sdcard_success">"Eklenti SD karta kopyalandı"</string>
+    <string name="copy_to_sdcard_fail">"Eklenti SD karta kopyalanamadı"</string>
+    <string name="menu_insert_smiley">"İfade ekle"</string>
+    <string name="select_link_title">"İşlemi seç"</string>
+    <!-- no translation found for slide_number (1923958526266726635) -->
+    <skip />
+    <!-- no translation found for slide_duration:one (1654101988340583935) -->
+    <!-- no translation found for slide_duration:few (7887190171856293871) -->
+    <!-- no translation found for slide_duration:other (3736425355579939863) -->
+    <!-- no translation found for delivery_report_activity (2957463094232916364) -->
+    <skip />
+    <!-- no translation found for add_attachment_activity (5324811371129695320) -->
+    <skip />
+    <!-- no translation found for select_layout_activity (5041916695464513848) -->
+    <skip />
+    <!-- no translation found for change_duration_activity (7048606979485031693) -->
+    <skip />
+    <!-- no translation found for edit_text_activity (5915226413346879213) -->
+    <skip />
+    <!-- no translation found for edit_slideshow_activity (8751493388760050529) -->
+    <skip />
+    <!-- no translation found for edit_slide_activity (8752829671778696983) -->
+    <skip />
+    <!-- no translation found for pick_numbers_activity (2083330191224178637) -->
+    <skip />
+    <!-- no translation found for slideshow_activity (5658249461317434432) -->
+    <skip />
+    <!-- no translation found for class_0_message_activity (8474176218999130627) -->
+    <skip />
+    <!-- no translation found for send_using_mms_activity (6082321147663913763) -->
+    <skip />
+    <!-- no translation found for select_contact_method_activity (1743384358979323991) -->
+    <skip />
+</resources>

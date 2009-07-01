@@ -35,22 +35,22 @@
     <item>"o_O"</item>
   </string-array>
   <string-array name="default_smiley_names">
-    <item>"행복해"</item>
-    <item>"슬퍼요"</item>
-    <item>"윙크"</item>
-    <item>"메롱"</item>
-    <item>"헉!"</item>
-    <item>"키스"</item>
-    <item>"아악"</item>
-    <item>"멋지네"</item>
-    <item>"으이구"</item>
-    <item>"실수했네"</item>
-    <item>"당황"</item>
-    <item>"천사"</item>
-    <item>"결정하기 어렵군"</item>
-    <item>"엉엉엉"</item>
-    <item>"비밀로 할게"</item>
-    <item>"하하하"</item>
-    <item>"어리둥절"</item>
+    <item>"Είμαι χαρούμενος"</item>
+    <item>"Είμαι λυπημένος"</item>
+    <item>"Κλείνω το μάτι"</item>
+    <item>"Κοροϊδεύω"</item>
+    <item>"Είμαι έκπληκτος"</item>
+    <item>"Φιλάω"</item>
+    <item>"Φωνάζω"</item>
+    <item>"Cool"</item>
+    <item>"Κάνω τα λόγια μου πράξη"</item>
+    <item>"Είπα χαζομάρα"</item>
+    <item>"Ντρέπομαι"</item>
+    <item>"Αγγελούδι"</item>
+    <item>"Δεν έχω αποφασίσει"</item>
+    <item>"Κλαίω"</item>
+    <item>"Δεν αποκαλύπτω τίποτα"</item>
+    <item>"Γελάω"</item>
+    <item>"Είμαι μπερδεμένος"</item>
   </string-array>
 </resources>
