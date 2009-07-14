@@ -140,15 +140,15 @@
     <string name="resize">"Ändra storlek"</string>
     <string name="try_to_send">"Försök skicka"</string>
     <string name="preferences_title">"Inställningar"</string>
-    <string name="restore_default">"Återställ standardinställningar"</string>
+    <string name="restore_default">"Återställ standardinställn."</string>
     <string name="pref_notification_settings_title">"Aviseringsinställningar"</string>
     <string name="pref_mms_settings_title">"MMS-inställningar"</string>
     <string name="pref_sms_settings_title">"SMS-inställningar"</string>
     <string name="pref_summary_manage_sim_messages">"Hantera meddelanden som sparats på SIM-kortet"</string>
     <string name="pref_summary_mms_delivery_reports">"Begär en leveransrapport för varje meddelande du skickar"</string>
-    <string name="pref_summary_mms_read_reports">"Begär en Läsrapport för varje meddelande du skickar"</string>
+    <string name="pref_summary_mms_read_reports">"Begär en läsrapport för varje meddelande du skickar"</string>
     <string name="pref_summary_sms_delivery_reports">"Begär en leveransrapport för varje meddelande du skickar"</string>
-    <string name="pref_title_manage_sim_messages">"Hantera meddelanden på SIM-kortet"</string>
+    <string name="pref_title_manage_sim_messages">"Hantera medd. på SIM-kortet"</string>
     <string name="pref_title_mms_delivery_reports">"Leveransrapporter"</string>
     <string name="pref_title_mms_read_reports">"Läsrapporter"</string>
     <string name="pref_title_sms_delivery_reports">"Leveransrapporter"</string>
@@ -159,7 +159,7 @@
     <string name="pref_title_notification_ringtone">"Välj ringsignal"</string>
     <string name="pref_title_mms_auto_retrieval">"Automatisk hämtning"</string>
     <string name="pref_summary_mms_auto_retrieval">"Hämta meddelanden automatiskt"</string>
-    <string name="pref_title_mms_retrieval_during_roaming">"Automatisk hämtning vid roaming"</string>
+    <string name="pref_title_mms_retrieval_during_roaming">"Auto. hämtning vid roam."</string>
     <string name="pref_summary_mms_retrieval_during_roaming">"Hämta meddelanden automatiskt vid roaming"</string>
     <string name="to_label">"Till "</string>
     <string name="confirm_dialog_title">"Ta bort"</string>
@@ -227,7 +227,7 @@
     <string name="type_picture">"bild"</string>
     <string name="type_video">"video"</string>
     <string name="confirm">"Bekräfta"</string>
-    <string name="message_send_read_report">"En Läsrapport skickas."</string>
+    <string name="message_send_read_report">"En läsrapport skickas."</string>
     <string name="message_queued">"Det går inte att skicka meddelandet just nu. Det skickas så snart tjänsten blir tillgänglig."</string>
     <string name="no_subject">"(Inget ämne)"</string>
     <string name="unknown_sender">"Okänd avsändare"</string>

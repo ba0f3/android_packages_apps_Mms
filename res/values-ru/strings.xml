@@ -150,9 +150,9 @@
     <string name="pref_summary_sms_delivery_reports">"Запрашивать отчет о доставке для всех отправляемых сообщений"</string>
     <string name="pref_title_manage_sim_messages">"Управление сообщениями на SIM-карте"</string>
     <string name="pref_title_mms_delivery_reports">"Отчеты о доставке"</string>
-    <string name="pref_title_mms_read_reports">"Прочитанные отчеты"</string>
+    <string name="pref_title_mms_read_reports">"Отчеты о прочтении"</string>
     <string name="pref_title_sms_delivery_reports">"Отчеты о доставке"</string>
-    <string name="pref_title_notification_enabled">"Напоминания"</string>
+    <string name="pref_title_notification_enabled">"Уведомления"</string>
     <string name="pref_summary_notification_enabled">"Отображать уведомления о сообщениях в строке состояния"</string>
     <string name="pref_title_notification_vibrate">"Вибрация"</string>
     <string name="pref_summary_notification_vibrate">"Вибрировать при уведомлении"</string>
