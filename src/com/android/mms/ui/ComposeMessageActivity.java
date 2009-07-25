@@ -67,6 +67,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -80,6 +81,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.provider.Contacts;
 import android.provider.Contacts.People;
 import android.provider.Contacts.Presence;
@@ -245,6 +247,7 @@ public class ComposeMessageActivity extends Activity
     private long mThreadId;                 // Database key for the current conversation
     private String mExternalAddress;        // Serialized recipients in the current conversation
     private boolean mExitOnSent;            // Should we finish() after sending a message?
+    private boolean mSendOnEnter;
 
     private View mTopPanel;                 // View containing the recipient and subject editors
     private View mBottomPanel;              // View containing the text editor, send button, ec.
@@ -2513,6 +2516,9 @@ public class ComposeMessageActivity extends Activity
 
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (event != null) {
+            if (((event.getKeyCode() == KeyEvent.KEYCODE_DPAD_CENTER) || (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) && !mSendOnEnter) {
+            	return false;
+            }
             if (!event.isShiftPressed()) {
                 if (isPreparedForSending()) {
                     sendMessage();
@@ -3229,6 +3235,8 @@ public class ComposeMessageActivity extends Activity
     }
 
     private void initActivityState(Bundle savedInstanceState, Intent intent) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
+        mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
         if (savedInstanceState != null) {
             setThreadId(savedInstanceState.getLong("thread_id", 0));
             mMessageUri = (Uri) savedInstanceState.getParcelable("msg_uri");
