@@ -69,6 +69,7 @@ import android.text.style.URLSpan;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,6 +97,13 @@ public class MessageUtils {
             new ConcurrentHashMap<String, String>(20 /* initial capacity */);
 
     public static final int READ_THREAD   = 1;
+
+    // Cache the most previous lookup of whether we're in 24-hour
+    // display mode, as that's an expensive operation based on
+    // traceview results (as of 2008-12-27). These are both guarded
+    // by a class lock.
+    private static WeakReference<Context> s24HourLastContext;
+    private static boolean sCached24HourMode;
 
     private MessageUtils() {
         // Forbidden being instantiated.
@@ -373,6 +381,15 @@ public class MessageUtils {
         int format_flags = DateUtils.FORMAT_NO_NOON_MIDNIGHT |
                            DateUtils.FORMAT_ABBREV_ALL |
                            DateUtils.FORMAT_CAP_AMPM;
+        
+        // DateUtils does this for you, but it ultimately makes the call to the slow
+        // DateFormat.is24HourFormat() method that we cache the result of, so
+        // override that for now until is24HourFormat() is made to be fast.
+        if (get24HourMode(context)) {
+            format_flags |= DateUtils.FORMAT_24HOUR;
+        } else {
+            format_flags |= DateUtils.FORMAT_12HOUR;
+        }
 
         // If the message is from a different year, show the date and year.
         if (then.year != now.year) {
@@ -393,6 +410,19 @@ public class MessageUtils {
         }
 
         return DateUtils.formatDateTime(context, when, format_flags);
+    }
+    
+    /**
+     * @return true if clock is set to 24-hour mode
+     */
+    static synchronized boolean get24HourMode(final Context context) {
+        if (s24HourLastContext != null &&
+            s24HourLastContext.get() == context) {
+            return sCached24HourMode;
+        }
+        s24HourLastContext = new WeakReference<Context>(context);
+        sCached24HourMode = android.text.format.DateFormat.is24HourFormat(context);
+        return sCached24HourMode;
     }
 
     /**
