@@ -695,5 +695,10 @@
          outstanding unsent message. -->
     <string name="too_many_unsent_mms">Can\'t send message right now. There are too many unsent multimedia messages.</string>
 
+    <!-- Extra settings -->
+    <string name="pref_extra_settings">Extra settings</string>
+    <string name="pref_title_mms_send_on_enter">Send on Enter</string>
+    <string name="pref_summary_mms_send_on_enter">Enable/disable send message when Enter key pressed</string>
+
 </resources>
 

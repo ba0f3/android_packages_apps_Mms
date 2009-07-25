@@ -66,6 +66,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnClickListener;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -85,6 +86,7 @@ import android.os.Parcelable;
 import android.os.SystemProperties;
 import android.provider.ContactsContract.Contacts;
 import android.provider.DrmStore;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.provider.ContactsContract.CommonDataKinds.Email;
@@ -217,6 +219,7 @@ public class ComposeMessageActivity extends Activity
     private Conversation mConversation;     // Conversation we are working in
 
     private boolean mExitOnSent;            // Should we finish() after sending a message?
+    private boolean mSendOnEnter;
 
     private View mTopPanel;                 // View containing the recipient and subject editors
     private View mBottomPanel;              // View containing the text editor, send button, ec.
@@ -2591,6 +2594,9 @@ public class ComposeMessageActivity extends Activity
         if (event != null) {
             // if shift key is down, then we want to insert the '\n' char in the TextView;
             // otherwise, the default action is to send the message.
+            if (((event.getKeyCode() == KeyEvent.KEYCODE_DPAD_CENTER) || (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) && !mSendOnEnter) {
+            	return false;
+            }
             if (!event.isShiftPressed()) {
                 if (isPreparedForSending()) {
                     confirmSendMessageIfNeeded();
@@ -2914,6 +2920,9 @@ public class ComposeMessageActivity extends Activity
     }
 
     private void initActivityState(Bundle bundle, Intent intent) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
+        mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
+
         if (bundle != null) {
             String recipients = bundle.getString("recipients");
             mConversation = Conversation.get(this,
