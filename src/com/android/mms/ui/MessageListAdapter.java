@@ -21,8 +21,10 @@ import com.android.mms.R;
 import com.google.android.mms.MmsException;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.provider.BaseColumns;
 import android.provider.Telephony.Mms;
 import android.provider.Telephony.MmsSms;
@@ -94,7 +96,7 @@ public class MessageListAdapter extends CursorAdapter {
     static final int COLUMN_MMS_ERROR_TYPE      = 17;
 
     private static final int CACHE_SIZE            = 50;
-    
+
     protected LayoutInflater mInflater;
     private final ListView mListView;
     private final LinkedHashMap<Long, MessageItem> mMessageItemCache;
@@ -102,6 +104,7 @@ public class MessageListAdapter extends CursorAdapter {
     private OnDataSetChangedListener mOnDataSetChangedListener;
     private final int mThreadType;
     private Handler mMsgListItemHandler;
+    private boolean mBlackBackground;
 
     public MessageListAdapter(
             Context context, Cursor c, ListView listView,
@@ -124,6 +127,8 @@ public class MessageListAdapter extends CursorAdapter {
         } else {
             mColumnsMap = new ColumnsMap(c);
         }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
     }
 
     @Override
@@ -131,10 +136,10 @@ public class MessageListAdapter extends CursorAdapter {
         if (view instanceof MessageListItem) {
             String type = cursor.getString(mColumnsMap.mColumnMsgType);
             long msgId = cursor.getLong(mColumnsMap.mColumnMsgId);
-            
+
             MessageItem msgItem = getCachedMessageItem(type, msgId, cursor);
             if (msgItem != null) {
-                ((MessageListItem) view).bind(msgItem);
+                ((MessageListItem) view).bind(msgItem, mBlackBackground);
                 ((MessageListItem) view).setMsgListItemHandler(mMsgListItemHandler);
             }
         }
@@ -169,7 +174,11 @@ public class MessageListAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return mInflater.inflate(R.layout.message_list_item, parent, false);
+        int resId = R.layout.message_list_item;
+        if(mBlackBackground) {
+            resId = R.layout.message_list_item_black;
+        }
+        return mInflater.inflate(resId, parent, false);
     }
 
     public MessageItem getCachedMessageItem(String type, long msgId, Cursor c) {

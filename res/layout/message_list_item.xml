@@ -37,7 +37,7 @@
             android:layout="@layout/mms_layout_view"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"/>
-    
+
         <TextView android:id="@+id/text_view"
             android:autoLink="all"
             android:layout_width="fill_parent"

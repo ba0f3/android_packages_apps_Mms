@@ -438,7 +438,7 @@
     <string name="recipient_label">Recipient:\u0020</string>
     <!-- Label in "Report" window -->
     <string name="status_label">Status:\u0020</string>
-    
+
 
     <!-- Attachment Type Selector Adapter. This string is an option in the "Attach" dialog, "Add music" dialog -->
     <string name="attach_image">Pictures</string>
@@ -501,7 +501,7 @@
     <!-- When an error occurs downloading a new message and the sender is unknown, substitute
          this default text. -->
     <string name="unknown_sender">Unknown sender</string>
-    <!-- When an error occurs downloading a new message, display this message. 
+    <!-- When an error occurs downloading a new message, display this message.
          An example: Download of message Wanna get pizza from dorkman was unsuccessful. -->
     <string name="dl_failure_notification">Download of message <xliff:g id="subject">%s</xliff:g> from <xliff:g id="from">%s</xliff:g> was unsuccessful.</string>
 
@@ -584,12 +584,15 @@
     <!-- Title of the select-contact-method activity. -->
     <string name="select_contact_method_activity">Select Contact Method</string>
 
+    <!-- Title for the option from MMS to send an IM -->
+    <string name="menu_send_im">Send IM</string>
+
     <!-- Extra settings -->
     <string name="pref_extra_settings">Extra settings</string>
     <string name="pref_title_mms_send_on_enter">Send on Enter</string>
     <string name="pref_summary_mms_send_on_enter">Enable/disable send message when Enter key pressed</string>
-    
-    <!-- Title for the option from MMS to send an IM -->
-    <string name="menu_send_im">Send IM</string>
+
+    <string name="pref_title_mms_black_background">Use black background</string>
+    <string name="pref_summary_mms_black_background">Change default background from white to black</string>
 </resources>
 
