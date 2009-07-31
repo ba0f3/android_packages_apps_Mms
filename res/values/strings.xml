@@ -449,7 +449,7 @@
     <string name="recipient_label">Recipient:\u0020</string>
     <!-- Label in "Report" window -->
     <string name="status_label">Status:\u0020</string>
-    
+
 
     <!-- Attachment Type Selector Adapter. This string is an option in the "Attach" dialog, "Add music" dialog -->
     <string name="attach_image">Pictures</string>
@@ -512,7 +512,7 @@
     <!-- When an error occurs downloading a new message and the sender is unknown, substitute
          this default text. -->
     <string name="unknown_sender">Unknown sender</string>
-    <!-- When an error occurs downloading a new message, display this message. 
+    <!-- When an error occurs downloading a new message, display this message.
          An example: Download of message Wanna get pizza from dorkman was unsuccessful. -->
     <string name="dl_failure_notification">Download of message <xliff:g id="subject">%s</xliff:g> from <xliff:g id="from">%s</xliff:g> was unsuccessful.</string>
 
@@ -595,12 +595,28 @@
     <!-- Title of the select-contact-method activity. -->
     <string name="select_contact_method_activity">Select Contact Method</string>
 
-    <!-- Extra settings -->
-    <string name="pref_extra_settings">Extra settings</string>
-    <string name="pref_title_mms_send_on_enter">Send on Enter</string>
-    <string name="pref_summary_mms_send_on_enter">Enable/disable send message when Enter key pressed</string>
-    
     <!-- Title for the option from MMS to send an IM -->
     <string name="menu_send_im">Send IM</string>
+
+    <!-- Menu item in conversation screen for append signature -->
+    <string name="append_signature">Append signature</string>
+
+    <!-- Extra settings -->
+    <string name="pref_extra_settings">Extra settings</string>
+
+    <string name="pref_title_mms_signature">Signature</string>
+    <string name="pref_summary_mms_signature">Append text to the end of all outgoing message</string>
+    <string name="pref_title_mms_signature_auto_append">Signature auto-append</string>
+    <string name="pref_summary_mms_signature_auto_append">Setting for signature auto-append</string>
+    <string name="pref_dialogtitle_mms_signature_auto_append">Auto-append signature?</string>
+    <string name="pref_mms_signature_auto_append_off">Manual/Off</string>
+    <string name="pref_mms_signature_auto_append_on_compose">Append on Compose</string>
+    <string name="pref_mms_signature_auto_append_on_send">Append on Send</string>
+
+    <string name="pref_title_mms_send_on_enter">Send on Enter</string>
+    <string name="pref_summary_mms_send_on_enter">Enable/disable send message when Enter key pressed</string>
+
+    <string name="pref_title_mms_black_background">Use black background</string>
+    <string name="pref_summary_mms_black_background">Change default background from white to black</string>
 </resources>
 

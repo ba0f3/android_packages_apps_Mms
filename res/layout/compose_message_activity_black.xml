@@ -31,7 +31,7 @@
         android:paddingBottom="5dip"
         android:paddingLeft="5dip"
         android:paddingRight="5dip"
-        android:background="@drawable/white_background"
+        android:background="@drawable/softgrey_background"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -55,7 +55,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:background="@drawable/white_background"
+        android:background="@drawable/softgrey_background"
         android:gravity="bottom">
 
         <view class="com.android.mms.ui.MessageListView"

@@ -75,9 +75,23 @@
   </PreferenceCategory>
 
   <PreferenceCategory android:title="@string/pref_extra_settings">
+    <EditTextPreference android:key="pref_key_mms_signature"
+                        android:title="@string/pref_title_mms_signature"
+                        android:summary="@string/pref_summary_mms_signature"
+                        android:dialogTitle="@string/pref_title_mms_signature" />
+    <ListPreference android:key="pref_key_mms_signature_auto_append"
+                    android:title="@string/pref_title_mms_signature_auto_append"
+                    android:summary="@string/pref_summary_mms_signature_auto_append"
+                    android:entries="@array/pref_mms_signature_auto_append_entries"
+                    android:entryValues="@array/pref_mms_signature_auto_append_values"
+                    android:dialogTitle="@string/pref_dialogtitle_mms_signature_auto_append" />
     <CheckBoxPreference android:key="pref_key_mms_send_on_enter"
                         android:title="@string/pref_title_mms_send_on_enter"
                         android:summary="@string/pref_summary_mms_send_on_enter"
                         android:defaultValue="true" />
+    <CheckBoxPreference android:key="pref_key_mms_black_background"
+                        android:title="@string/pref_title_mms_black_background"
+                        android:summary="@string/pref_summary_mms_black_background"
+                        android:defaultValue="false" />
   </PreferenceCategory>
 </PreferenceScreen>
