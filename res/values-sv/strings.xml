@@ -15,7 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"Meddelanden"</string>
+    <string name="app_label">"Medd."</string>
     <string name="new_message">"Nytt meddelande"</string>
     <string name="create_new_message">"Skriv nytt meddelande"</string>
     <string name="menu_call_back">"Ring <xliff:g id="NAME">%s</xliff:g>"</string>
@@ -157,9 +157,9 @@
     <string name="pref_title_notification_vibrate">"Vibrera"</string>
     <string name="pref_summary_notification_vibrate">"Vibrera även vid aviseringar"</string>
     <string name="pref_title_notification_ringtone">"Välj ringsignal"</string>
-    <string name="pref_title_mms_auto_retrieval">"Automatisk hämtning"</string>
+    <string name="pref_title_mms_auto_retrieval">"Autohämtning"</string>
     <string name="pref_summary_mms_auto_retrieval">"Hämta meddelanden automatiskt"</string>
-    <string name="pref_title_mms_retrieval_during_roaming">"Auto. hämtning vid roam."</string>
+    <string name="pref_title_mms_retrieval_during_roaming">"Aut. hämtning vid roam."</string>
     <string name="pref_summary_mms_retrieval_during_roaming">"Hämta meddelanden automatiskt vid roaming"</string>
     <string name="to_label">"Till "</string>
     <string name="confirm_dialog_title">"Ta bort"</string>

@@ -148,7 +148,7 @@
     <string name="pref_summary_mms_delivery_reports">"Solicita un informe de entrega para cada mensaje que envías"</string>
     <string name="pref_summary_mms_read_reports">"Solicita un informe de lectura para cada mensaje que envías"</string>
     <string name="pref_summary_sms_delivery_reports">"Solicita un informe de entrega para cada mensaje que envías"</string>
-    <string name="pref_title_manage_sim_messages">"Administrar mensajes de tarjeta SIM"</string>
+    <string name="pref_title_manage_sim_messages">"Admin. mensajes de tarj. SIM"</string>
     <string name="pref_title_mms_delivery_reports">"Informes de entrega"</string>
     <string name="pref_title_mms_read_reports">"Informes leídos"</string>
     <string name="pref_title_sms_delivery_reports">"Informes de entrega"</string>
@@ -157,9 +157,9 @@
     <string name="pref_title_notification_vibrate">"Vibrar"</string>
     <string name="pref_summary_notification_vibrate">"También vibra cuando notifica"</string>
     <string name="pref_title_notification_ringtone">"Seleccionar tono de timbre"</string>
-    <string name="pref_title_mms_auto_retrieval">"Recuperación automática"</string>
+    <string name="pref_title_mms_auto_retrieval">"Recup. automática"</string>
     <string name="pref_summary_mms_auto_retrieval">"Recuperar mensajes automáticamente"</string>
-    <string name="pref_title_mms_retrieval_during_roaming">"Roaming de recuperación automática"</string>
+    <string name="pref_title_mms_retrieval_during_roaming">"Roaming de recup. auto."</string>
     <string name="pref_summary_mms_retrieval_during_roaming">"Recuperar mensajes automáticamente durante el roaming"</string>
     <string name="to_label">"Para "</string>
     <string name="confirm_dialog_title">"Eliminar"</string>

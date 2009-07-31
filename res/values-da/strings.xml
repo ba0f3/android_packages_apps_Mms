@@ -15,14 +15,14 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"Meddelelser"</string>
+    <string name="app_label">"Meddel."</string>
     <string name="new_message">"Ny besked"</string>
     <string name="create_new_message">"Skriv ny besked"</string>
     <string name="menu_call_back">"Ring til <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="menu_send_email">"Send en e-mail til <xliff:g id="NAME">%s</xliff:g>"</string>
     <string name="menu_compose_new">"Skriv"</string>
     <string name="menu_preferences">"Indstillinger"</string>
-    <string name="menu_add_address_to_contacts">"Føj <xliff:g id="NAME">%s</xliff:g> til kontaktpersoner"</string>
+    <string name="menu_add_address_to_contacts">"Føj <xliff:g id="NAME">%s</xliff:g> til kontakter"</string>
     <string name="menu_call">"Ring til"</string>
     <string name="menu_delete_all">"Slet tråde"</string>
     <string name="menu_delete">"Slet tråd"</string>
@@ -130,8 +130,8 @@
     <item>"10 sekunder"</item>
     <item>"Anden ..."</item>
   </string-array>
-    <string name="menu_view_contact">"Vis kontaktperson"</string>
-    <string name="menu_add_to_contacts">"Føj til kontaktpersoner"</string>
+    <string name="menu_view_contact">"Vis kontakt"</string>
+    <string name="menu_add_to_contacts">"Føj til kontakter"</string>
     <string name="hidden_sender_address">"Skjult afsenderadresse"</string>
     <string name="yes">"OK"</string>
     <string name="no">"Annuller"</string>
@@ -148,7 +148,7 @@
     <string name="pref_summary_mms_delivery_reports">"Anmod om en leveringsrapport for alle de beskeder, du sender"</string>
     <string name="pref_summary_mms_read_reports">"Anmod om en læsningsrapport for alle de beskeder, du sender"</string>
     <string name="pref_summary_sms_delivery_reports">"Anmod om en leveringsrapport for alle de beskeder, du sender"</string>
-    <string name="pref_title_manage_sim_messages">"Administrer SIM-kortbeskeder"</string>
+    <string name="pref_title_manage_sim_messages">"Adm. SIM-kortbeskeder"</string>
     <string name="pref_title_mms_delivery_reports">"Leveringsrapporter"</string>
     <string name="pref_title_mms_read_reports">"Læs rapporter"</string>
     <string name="pref_title_sms_delivery_reports">"Leveringsrapporter"</string>
@@ -159,7 +159,7 @@
     <string name="pref_title_notification_ringtone">"Vælg ringetone"</string>
     <string name="pref_title_mms_auto_retrieval">"Automatisk hentning"</string>
     <string name="pref_summary_mms_auto_retrieval">"Hent automatisk beskeder"</string>
-    <string name="pref_title_mms_retrieval_during_roaming">"Automatisk hentning under roaming"</string>
+    <string name="pref_title_mms_retrieval_during_roaming">"Aut. hent. u. roam."</string>
     <string name="pref_summary_mms_retrieval_during_roaming">"Hent automatisk beskeder under roaming"</string>
     <string name="to_label">"Til "</string>
     <string name="confirm_dialog_title">"Slet"</string>
@@ -209,9 +209,9 @@
     <string name="recipient_label">"Modtager: "</string>
     <string name="status_label">"Status: "</string>
     <string name="attach_image">"Billeder"</string>
-    <string name="attach_take_photo">"Fotografer billede"</string>
+    <string name="attach_take_photo">"Tag billede"</string>
     <string name="attach_video">"Videoer"</string>
-    <string name="attach_record_video">"Fotografer video"</string>
+    <string name="attach_record_video">"Optag video"</string>
     <string name="attach_sound">"Lyd"</string>
     <string name="attach_record_sound">"Optag lyd"</string>
     <string name="attach_slideshow">"Diasshow"</string>

@@ -81,7 +81,7 @@
     <string name="remove">"Kaldır"</string>
     <string name="send">"Gönder"</string>
     <string name="all_threads">"Tüm ileti dizileri"</string>
-    <string name="type_to_compose_text_enter_to_send">"İleti oluşturmak için yazın"</string>
+    <string name="type_to_compose_text_enter_to_send">"Oluşturmak için yazın"</string>
     <string name="open_keyboard_to_compose_message">"İletiyi oluşturmak için tuş takımını aç"</string>
     <string name="image_too_large">"Resim çok büyük"</string>
     <string name="ask_for_automatically_resize">"Resim gönderilmeden önce otomatik olarak yeniden boyutlandırılsın mı?"</string>
@@ -115,7 +115,7 @@
     <string name="layout_selector_title">"Slayt gösterisi düzeni "</string>
     <string name="layout_top">"Düzen (üst)"</string>
     <string name="layout_bottom">"Düzen (alt)"</string>
-    <string name="type_to_compose_text_or_leave_blank">"İleti oluşturmak için yazın veya boş bırakın"</string>
+    <string name="type_to_compose_text_or_leave_blank">"Metni girmek için yazın veya boş bırakın"</string>
     <string name="secs">"saniye"</string>
   <string-array name="select_dialog_items">
     <item>"1 saniye"</item>

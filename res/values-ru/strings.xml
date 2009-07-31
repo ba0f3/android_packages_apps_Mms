@@ -37,7 +37,7 @@
     <string name="messagelist_sender_self">"Я"</string>
     <string name="view_picture">"Просмотреть картинку"</string>
     <string name="view_slideshow">"Просмотреть слайд-шоу"</string>
-    <string name="view_message_details">"Просмотреть подробные сведения о сообщении"</string>
+    <string name="view_message_details">"Просмотреть сведения о сообщении"</string>
     <string name="view_delivery_report">"Просмотреть отчет"</string>
     <string name="delete_message">"Удалить сообщение"</string>
     <string name="sent_on">"Отправлено: <xliff:g id="DATE">%s</xliff:g>"</string>

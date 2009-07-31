@@ -160,7 +160,7 @@
     <string name="pref_title_mms_auto_retrieval">"Recuperação automática"</string>
     <string name="pref_summary_mms_auto_retrieval">"Recupera mensagens automaticamente"</string>
     <string name="pref_title_mms_retrieval_during_roaming">"Recuperação automática de roaming"</string>
-    <string name="pref_summary_mms_retrieval_during_roaming">"Recupera mensagens automaticamente quando estiver em trânsito"</string>
+    <string name="pref_summary_mms_retrieval_during_roaming">"Recupera mensagens automaticamente em roaming"</string>
     <string name="to_label">"Para "</string>
     <string name="confirm_dialog_title">"Excluir"</string>
     <string name="confirm_delete_conversation">"A conversa inteira será excluída."</string>

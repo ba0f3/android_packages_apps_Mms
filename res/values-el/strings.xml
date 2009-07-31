@@ -55,7 +55,7 @@
     <string name="insufficient_drm_rights">"Ανιχνεύτηκαν ανεπαρκή δικαιώματα DRM."</string>
     <string name="copy_message_text">"Αντιγραφή κειμένου μηνύματος"</string>
     <string name="message_options">"Επιλογές μηνύματος"</string>
-    <string name="done">"Ολοκληρώθηκε"</string>
+    <string name="done">"Τέλος"</string>
     <string name="move_up">"Μετακίνηση προς τα επάνω"</string>
     <string name="move_down">"Μετακίνηση προς τα κάτω"</string>
     <string name="remove_slide">"Κατάργηση διαφάνειας"</string>
@@ -242,7 +242,7 @@
     <string name="copy_to_sdcard">"Αντιγραφή επισύναψης στην κάρτα SD"</string>
     <string name="copy_to_sdcard_success">"Έγινε αντιγραφή της επισύναψης στην κάρτα SD"</string>
     <string name="copy_to_sdcard_fail">"Η αντιγραφή της επισύναψης στην κάρτα SD απέτυχε"</string>
-    <string name="menu_insert_smiley">"Εισαγωγή εικονιδίου smiley"</string>
+    <string name="menu_insert_smiley">"Εισαγ.εικον.smiley"</string>
     <string name="select_link_title">"Επιλογή ενέργειας"</string>
     <string name="slide_number">"Διαφάνεια <xliff:g id="NUMBER">%s</xliff:g>"</string>
   <plurals name="slide_duration">
