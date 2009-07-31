@@ -178,6 +178,7 @@ public class ComposeMessageActivity extends Activity
     private static final int MENU_SEND                  = 4;
     private static final int MENU_CALL_RECIPIENT        = 5;
     private static final int MENU_CONVERSATION_LIST     = 6;
+    private static final int MENU_APPEND_SIGNATURE      = 7;
 
     // Context menu ID
     private static final int MENU_VIEW_CONTACT          = 12;
@@ -247,8 +248,10 @@ public class ComposeMessageActivity extends Activity
     private long mThreadId;                 // Database key for the current conversation
     private String mExternalAddress;        // Serialized recipients in the current conversation
     private boolean mExitOnSent;            // Should we finish() after sending a message?
-    private boolean mSendOnEnter;
-    private boolean mBlackBackground;
+    private boolean mSendOnEnter;           // A toggle setting for enable/disable Send-on-Enter feature
+    private boolean mBlackBackground;       // Option for switch background from white to black
+    private CharSequence mSignature;        // Append text at the end of all outgoing messages
+    private String mSignatureAutoAppend;    // Setting for Signature auto-append
 
     private View mTopPanel;                 // View containing the recipient and subject editors
     private View mBottomPanel;              // View containing the text editor, send button, ec.
@@ -1585,6 +1588,8 @@ public class ComposeMessageActivity extends Activity
         requestWindowFeature(Window.FEATURE_LEFT_ICON);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
+        mSignature = prefs.getString(MessagingPreferenceActivity.SIGNATURE, "");
+        mSignatureAutoAppend = prefs.getString(MessagingPreferenceActivity.SIGNATURE_AUTO_APPEND, "0");
         mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
         mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
         if(!mBlackBackground) {
@@ -1844,6 +1849,10 @@ public class ComposeMessageActivity extends Activity
             mTextEditor.setFocusable(false);
             mTextEditor.setHint(R.string.open_keyboard_to_compose_message);
         }
+        // Auto-append signature on compose
+        if((mSignature != null) && mSignatureAutoAppend.equals("1") && (mMsgText.length() == 0)) {
+            appendSignature();
+        }
     }
 
     @Override
@@ -1954,6 +1963,11 @@ public class ComposeMessageActivity extends Activity
         startActivity(dialIntent);
     }
 
+    private void appendSignature() {
+        mSignature = "\n" + mSignature;
+        mTextEditor.append(mSignature);
+    }
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.clear();
@@ -2005,6 +2019,9 @@ public class ComposeMessageActivity extends Activity
 
         menu.add(0, MENU_CONVERSATION_LIST, 0, R.string.all_threads).setIcon(
                 com.android.internal.R.drawable.ic_menu_friendslist);
+        if(!mSignature.equals("")) {
+            menu.add(0, MENU_APPEND_SIGNATURE, 0, R.string.append_signature).setIcon(com.android.internal.R.drawable.ic_menu_edit);
+        }
 
         buildAddAddressToContactMenuItem(menu);
         return true;
@@ -2091,6 +2108,10 @@ public class ComposeMessageActivity extends Activity
                         goToConversationList();
                     }
                 });
+                break;
+            case MENU_APPEND_SIGNATURE:
+                // Append signature manually
+                appendSignature();
                 break;
             case MENU_CALL_RECIPIENT:
                 dialRecipient();
@@ -3037,6 +3058,11 @@ public class ComposeMessageActivity extends Activity
     private void sendMessage() {
         // Need this for both SMS and MMS.
         final String[] dests = mRecipientList.getToNumbers();
+
+        // Auto-append signature on send
+        if((mSignature != null) && mSignatureAutoAppend.equals("2")) {
+            appendSignature();
+        }
 
         // removeSubjectIfEmpty will convert a message that is solely an MMS
         // message because it has an empty subject back into an SMS message.

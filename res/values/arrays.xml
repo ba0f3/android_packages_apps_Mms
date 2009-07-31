@@ -61,4 +61,16 @@
         <item>Laughing</item>                <!-- 15: :-D -->
         <item>Confused</item>                <!-- 16: o_O -->
     </string-array>
+
+    <string-array name="pref_mms_signature_auto_append_entries">
+        <item>@string/pref_mms_signature_auto_append_off</item>
+        <item>@string/pref_mms_signature_auto_append_on_compose</item>
+        <item>@string/pref_mms_signature_auto_append_on_send</item>
+    </string-array>
+
+    <string-array name="pref_mms_signature_auto_append_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>
