@@ -47,12 +47,13 @@
                         android:key="pref_key_mms_retrieval_during_roaming"
                         android:title="@string/pref_title_mms_retrieval_during_roaming"
                         android:summary="@string/pref_summary_mms_retrieval_during_roaming" />
-    <EditTextPreference	android:key="pref_key_mms_user_agent"
-			android:title="@string/pref_title_mms_user_agent"
-			android:summary="@string/pref_summary_mms_user_agent"
-			android:dialogTitle="@string/pref_dialogtitle_mms_user_agent"
-                        android:defaultValue="@string/pref_default_mms_user_agent"
-                        android:singleLine="true" />
+    <EditTextPreference android:key="pref_key_mms_user_agent"
+            android:title="@string/pref_title_mms_user_agent"
+            android:summary="@string/pref_summary_mms_user_agent"
+            android:dialogTitle="@string/pref_dialogtitle_mms_user_agent"
+            android:defaultValue="@string/pref_default_mms_user_agent"
+            android:singleLine="true" />
+
   </PreferenceCategory>
   <PreferenceCategory android:title="@string/pref_notification_settings_title">
     <CheckBoxPreference android:key="pref_key_enable_notifications"
