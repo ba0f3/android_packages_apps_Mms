@@ -60,31 +60,67 @@
                         android:title="@string/pref_title_notification_enabled"
                         android:summary="@string/pref_summary_notification_enabled"
                         android:defaultValue="true" />
-    <RingtonePreference android:layout="?android:attr/preferenceLayoutChild"
-                        android:dependency="pref_key_enable_notifications"
-                        android:key="pref_key_ringtone"
-                        android:title="@string/pref_title_notification_ringtone"
-                        android:ringtoneType="notification"
-                        android:defaultValue="content://settings/system/notification_sound" />
-    <CheckBoxPreference android:layout="?android:attr/preferenceLayoutChild"
-                        android:dependency="pref_key_enable_notifications"
-                        android:key="pref_key_vibrate"
-                        android:defaultValue="false"
-                        android:title="@string/pref_title_notification_vibrate"
-                        android:summary="@string/pref_summary_notification_vibrate" />
+    <PreferenceScreen android:key="pref_key_mms_notification_settings"
+                      android:dependency="pref_key_enable_notifications"
+                      android:title="@string/pref_notification_settings_title">
+        <PreferenceCategory android:title="@string/pref_notification_settings_title">
+          <RingtonePreference android:layout="?android:attr/preferenceLayoutChild"
+                              android:dependency="pref_key_enable_notifications"
+                              android:key="pref_key_ringtone"
+                              android:title="@string/pref_title_notification_ringtone"
+                              android:ringtoneType="notification"
+                              android:defaultValue="content://settings/system/notification_sound" />
+        </PreferenceCategory>
+        <PreferenceCategory android:title="@string/pref_title_mms_notification_led_settings">
+          <CheckBoxPreference android:key="pref_key_mms_notification_led"
+                              android:dependency="pref_key_enable_notifications"
+                              android:defaultValue="true"
+                              android:title="@string/pref_title_mms_notification_led"
+                              android:summary="@string/pref_summary_mms_notification_led" />
+          <ListPreference android:key="pref_key_mms_notification_led_color"
+                          android:dependency="pref_key_mms_notification_led"
+                          android:defaultValue="green"
+                          android:title="@string/pref_title_mms_notification_led_color"
+                          android:summary="@string/pref_summary_mms_notification_led_color"
+                          android:entries="@array/pref_mms_notification_led_color_entries"
+                          android:entryValues="@array/pref_mms_notification_led_color_values"
+                          android:dialogTitle="@string/pref_dialogtitle_mms_notification_led_color" />
+        </PreferenceCategory>
+        <PreferenceCategory android:title="@string/pref_title_mms_notification_vibrate_settings">
+          <CheckBoxPreference android:layout="?android:attr/preferenceLayoutChild"
+                              android:key="pref_key_vibrate"
+                              android:defaultValue="false"
+                              android:title="@string/pref_title_notification_vibrate"
+                              android:summary="@string/pref_summary_notification_vibrate" />
+          <ListPreference android:key="pref_key_mms_notification_vibrate_pattern"
+                          android:dependency="pref_key_vibrate"
+                          android:defaultValue="0,1200"
+                          android:title="@string/pref_title_mms_notification_vibrate_pattern"
+                          android:summary="@string/pref_summary_mms_notification_vibrate_pattern"
+                          android:entries="@array/pref_mms_notification_vibrate_pattern_entries"
+                          android:entryValues="@array/pref_mms_notification_vibrate_pattern_values"
+                          android:dialogTitle="@string/pref_title_mms_notification_vibrate_pattern" />
+        </PreferenceCategory>
+    </PreferenceScreen>
   </PreferenceCategory>
 
   <PreferenceCategory android:title="@string/pref_extra_settings">
-    <EditTextPreference android:key="pref_key_mms_signature"
-                        android:title="@string/pref_title_mms_signature"
-                        android:summary="@string/pref_summary_mms_signature"
-                        android:dialogTitle="@string/pref_title_mms_signature" />
-    <ListPreference android:key="pref_key_mms_signature_auto_append"
-                    android:title="@string/pref_title_mms_signature_auto_append"
-                    android:summary="@string/pref_summary_mms_signature_auto_append"
-                    android:entries="@array/pref_mms_signature_auto_append_entries"
-                    android:entryValues="@array/pref_mms_signature_auto_append_values"
-                    android:dialogTitle="@string/pref_dialogtitle_mms_signature_auto_append" />
+    <PreferenceScreen android:key="pref_key_mms_signature"
+                      android:title="@string/pref_title_mms_signature"
+                      android:summary="@string/pref_summary_mms_signature" >
+        <PreferenceCategory android:title="@string/pref_title_mms_signature">
+          <EditTextPreference android:key="pref_key_mms_signature"
+                              android:title="@string/pref_title_mms_edit_signature"
+                              android:dialogTitle="@string/pref_title_mms_edit_signature" />
+          <ListPreference android:key="pref_key_mms_signature_auto_append"
+                          android:defaultValue="0"
+                          android:title="@string/pref_title_mms_signature_auto_append"
+                          android:summary="@string/pref_summary_mms_signature_auto_append"
+                          android:entries="@array/pref_mms_signature_auto_append_entries"
+                          android:entryValues="@array/pref_mms_signature_auto_append_values"
+                          android:dialogTitle="@string/pref_dialogtitle_mms_signature_auto_append" />
+        </PreferenceCategory>
+    </PreferenceScreen>
     <CheckBoxPreference android:key="pref_key_mms_send_on_enter"
                         android:title="@string/pref_title_mms_send_on_enter"
                         android:summary="@string/pref_summary_mms_send_on_enter"

@@ -604,8 +604,10 @@
     <!-- Extra settings -->
     <string name="pref_extra_settings">Extra settings</string>
 
+    <!-- Signature w/ Auto-append feature support for MMS -->
     <string name="pref_title_mms_signature">Signature</string>
     <string name="pref_summary_mms_signature">Append text to the end of all outgoing message</string>
+    <string name="pref_title_mms_edit_signature">Edit signature</string>
     <string name="pref_title_mms_signature_auto_append">Signature auto-append</string>
     <string name="pref_summary_mms_signature_auto_append">Setting for signature auto-append</string>
     <string name="pref_dialogtitle_mms_signature_auto_append">Auto-append signature?</string>
@@ -613,10 +615,32 @@
     <string name="pref_mms_signature_auto_append_on_compose">Append on Compose</string>
     <string name="pref_mms_signature_auto_append_on_send">Append on Send</string>
 
+    <!-- Toggle setting for enable/disable Send message when Enter key pressed -->
     <string name="pref_title_mms_send_on_enter">Send on Enter</string>
     <string name="pref_summary_mms_send_on_enter">Enable/disable send message when Enter key pressed</string>
 
+    <!-- Switch between White and Black background -->
     <string name="pref_title_mms_black_background">Use black background</string>
     <string name="pref_summary_mms_black_background">Change default background from white to black</string>
+
+    <!-- Change LED color for message notification -->
+    <string name="pref_title_mms_notification_led_settings">LED settings</string>
+    <string name="pref_title_mms_notification_led">Blink LED</string>
+    <string name="pref_summary_mms_notification_led">Blink LED when message received</string>
+    <string name="pref_title_mms_notification_led_color">LED color</string>
+    <string name="pref_summary_mms_notification_led_color">Change LED color</string>
+    <string name="pref_dialogtitle_mms_notification_led_color">Select your LED color</string>
+
+    <string name="pref_mms_notification_led_color_green">Green/Default</string>
+    <string name="pref_mms_notification_led_color_white">White</string>
+    <string name="pref_mms_notification_led_color_red">Red</string>
+    <string name="pref_mms_notification_led_color_blue">Blue</string>
+    <string name="pref_mms_notification_led_color_yellow">Yellow</string>
+    <string name="pref_mms_notification_led_color_cyan">Cyan</string>
+    <string name="pref_mms_notification_led_color_magenta">Magenta</string>
+
+    <string name="pref_title_mms_notification_vibrate_settings">Vibrate settings</string>
+    <string name="pref_title_mms_notification_vibrate_pattern">Vibrate pattern</string>
+    <string name="pref_summary_mms_notification_vibrate_pattern">Change vibrate pattern</string>
 </resources>
 

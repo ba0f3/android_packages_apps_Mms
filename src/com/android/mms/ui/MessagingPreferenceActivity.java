@@ -22,10 +22,13 @@ import com.google.android.mms.pdu.PduHeaders;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.util.Log;
 
 /**
  * With this activity, users can set preferences for MMS and SMS and
@@ -44,25 +47,27 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final int VALUE_RESUBMISSION_MODE_FREE       = 2;
 
     // Symbolic names for the keys used for preference lookup
-    public static final String COMPRESS_IMAGE_MODE      = "pref_key_mms_compress_images";
-    public static final String CREATION_MODE            = "pref_key_mms_creation_mode";
-    public static final String MMS_DELIVERY_REPORT_MODE = "pref_key_mms_delivery_reports";
-    public static final String EXPIRY_TIME              = "pref_key_mms_expiry";
-    public static final String PRIORITY                 = "pref_key_mms_priority";
-    public static final String READ_REPORT_MODE         = "pref_key_mms_read_reports";
-    public static final String RESUBMISSION_MODE        = "pref_key_mms_resubmission_mode";
-    public static final String SMS_DELIVERY_REPORT_MODE = "pref_key_sms_delivery_reports";
-    public static final String NOTIFICATION_ENABLED     = "pref_key_enable_notifications";
-    public static final String NOTIFICATION_VIBRATE     = "pref_key_vibrate";
-    public static final String NOTIFICATION_SOUND       = "pref_key_sound";
-    public static final String NOTIFICATION_RINGTONE    = "pref_key_ringtone";
-    public static final String AUTO_RETRIEVAL           = "pref_key_mms_auto_retrieval";
-    public static final String RETRIEVAL_DURING_ROAMING = "pref_key_mms_retrieval_during_roaming";
-    public static final String USERAGENT		= "pref_key_mms_user_agent";
-    public static final String SEND_ON_ENTER            = "pref_key_mms_send_on_enter";
-    public static final String BLACK_BACKGROUND         = "pref_key_mms_black_background";
-    public static final String SIGNATURE                = "pref_key_mms_signature";
-    public static final String SIGNATURE_AUTO_APPEND    = "pref_key_mms_signature_auto_append";
+    public static final String COMPRESS_IMAGE_MODE          = "pref_key_mms_compress_images";
+    public static final String CREATION_MODE                = "pref_key_mms_creation_mode";
+    public static final String MMS_DELIVERY_REPORT_MODE     = "pref_key_mms_delivery_reports";
+    public static final String EXPIRY_TIME                  = "pref_key_mms_expiry";
+    public static final String PRIORITY                     = "pref_key_mms_priority";
+    public static final String READ_REPORT_MODE             = "pref_key_mms_read_reports";
+    public static final String RESUBMISSION_MODE            = "pref_key_mms_resubmission_mode";
+    public static final String SMS_DELIVERY_REPORT_MODE     = "pref_key_sms_delivery_reports";
+    public static final String NOTIFICATION_ENABLED         = "pref_key_enable_notifications";
+    public static final String NOTIFICATION_VIBRATE         = "pref_key_vibrate";
+    public static final String NOTIFICATION_VIBRATE_PATTERN = "pref_key_mms_notification_vibrate_pattern";
+    public static final String NOTIFICATION_SOUND           = "pref_key_sound";
+    public static final String NOTIFICATION_RINGTONE        = "pref_key_ringtone";
+    public static final String AUTO_RETRIEVAL               = "pref_key_mms_auto_retrieval";
+    public static final String RETRIEVAL_DURING_ROAMING     = "pref_key_mms_retrieval_during_roaming";
+    public static final String SEND_ON_ENTER                = "pref_key_mms_send_on_enter";
+    public static final String BLACK_BACKGROUND             = "pref_key_mms_black_background";
+    public static final String SIGNATURE                    = "pref_key_mms_signature";
+    public static final String SIGNATURE_AUTO_APPEND        = "pref_key_mms_signature_auto_append";
+    public static final String NOTIFICATION_LED             = "pref_key_mms_notification_led";
+    public static final String NOTIFICATION_LED_COLOR       = "pref_key_mms_notification_led_color";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
