@@ -1589,7 +1589,7 @@ public class ComposeMessageActivity extends Activity
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
         mSignature = prefs.getString(MessagingPreferenceActivity.SIGNATURE, "");
-        mSignatureAutoAppend = prefs.getInt(MessagingPreferenceActivity.SIGNATURE_AUTO_APPEND, 0);
+        mSignatureAutoAppend = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.SIGNATURE_AUTO_APPEND, "0"));
         mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
         mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
         if(!mBlackBackground) {

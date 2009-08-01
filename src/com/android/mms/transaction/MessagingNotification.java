@@ -41,6 +41,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.preference.PreferenceManager;
@@ -51,8 +52,8 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
-import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
@@ -103,7 +104,7 @@ public class MessagingNotification {
 
     private static final MmsSmsNotificationInfoComparator INFO_COMPARATOR =
             new MmsSmsNotificationInfoComparator();
-    
+
     private static final Uri UNDELIVERED_URI = Uri.parse("content://mms-sms/undelivered");
 
     private MessagingNotification() {
@@ -130,7 +131,7 @@ public class MessagingNotification {
         SortedSet<MmsSmsNotificationInfo> accumulator =
                 new TreeSet<MmsSmsNotificationInfo>(INFO_COMPARATOR);
         Set<Long> threads = new HashSet<Long>(4);
-        
+
         int count = 0;
         count += accumulateNotificationInfo(
                 accumulator, getMmsNewMessageNotificationInfo(context, threads));
@@ -157,7 +158,7 @@ public class MessagingNotification {
             }
         }).start();
     }
-    
+
     /**
      * Deletes any delivery report notifications for the specified
      * thread, then checks to see if there are any unread messages or
@@ -233,7 +234,7 @@ public class MessagingNotification {
         if (cursor == null) {
             return null;
         }
-        
+
         try {
             if (!cursor.moveToFirst()) {
                 return null;
@@ -273,7 +274,7 @@ public class MessagingNotification {
         if (cursor == null) {
             return null;
         }
-        
+
         try {
             if (!cursor.moveToFirst()) {
                 return null;
@@ -370,7 +371,7 @@ public class MessagingNotification {
             clickIntent.setAction(Intent.ACTION_MAIN);
             clickIntent.setType("vnd.android-dir/mms-sms");
         }
-        
+
         // If there is more than one message, change the description (which
         // would normally be a snippet of the individual message text) to
         // a string indicating how many unread messages there are.
@@ -389,7 +390,12 @@ public class MessagingNotification {
         if (isNew) {
             boolean vibrate = sp.getBoolean(MessagingPreferenceActivity.NOTIFICATION_VIBRATE, true);
             if (vibrate) {
-                notification.defaults |= Notification.DEFAULT_VIBRATE;
+                String mVibratePattern = sp.getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_PATTERN, "0,1200");
+                if(!mVibratePattern.equals("")) {
+                    notification.vibrate = parseVibratePattern(mVibratePattern);
+                } else {
+                    notification.defaults |= Notification.DEFAULT_VIBRATE;
+                }
             }
 
             String ringtoneStr = sp
@@ -398,9 +404,15 @@ public class MessagingNotification {
         }
 
         notification.flags |= Notification.FLAG_SHOW_LIGHTS;
-        notification.ledARGB = 0xff00ff00;
-        notification.ledOnMS = 500;
-        notification.ledOffMS = 2000;
+        // Patch for changing LED notification settings
+        boolean mBlinkLed = sp.getBoolean(MessagingPreferenceActivity.NOTIFICATION_LED, true);
+        if(mBlinkLed) {
+            // default color is green: 0xff00ff00
+            int mLedColor = Color.parseColor(sp.getString(MessagingPreferenceActivity.NOTIFICATION_LED_COLOR, "green"));
+            notification.ledARGB = mLedColor;
+            notification.ledOnMS = 500;
+            notification.ledOffMS = 2000;
+        }
 
         NotificationManager nm = (NotificationManager)
             context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -412,7 +424,7 @@ public class MessagingNotification {
             Context context, String address, String subject, String body) {
         String displayAddress = ContactInfoCache.getInstance()
                 .getContactName(context, address);
-        
+
         StringBuilder buf = new StringBuilder(
                 displayAddress == null
                 ? ""
@@ -454,7 +466,7 @@ public class MessagingNotification {
     public static void notifySendFailed(Context context, boolean noisy) {
         notifyFailed(context, false, 0, noisy);
     }
-    
+
     private static void notifyFailed(Context context, boolean isDownload, long threadId,
                                      boolean noisy) {
         // TODO factor out common code for creating notifications
@@ -467,17 +479,17 @@ public class MessagingNotification {
 
         NotificationManager nm = (NotificationManager)
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
-        
+
         // Strategy:
         // a. If there is a single failure notification, tapping on the notification goes
         //    to the compose view.
-        // b. If there are two failure it stays in the thread view. Selecting one undelivered 
+        // b. If there are two failure it stays in the thread view. Selecting one undelivered
         //    thread will dismiss one undelivered notification but will still display the
         //    notification.If you select the 2nd undelivered one it will dismiss the notification.
-        
+
         long[] msgThreadId = {0};
         int totalFailedCount = getUndeliveredMessageCount(context, msgThreadId);
-        
+
         Intent failedIntent;
         Notification notification = new Notification();
         String title;
@@ -492,12 +504,12 @@ public class MessagingNotification {
             title = isDownload ?
                         context.getString(R.string.message_download_failed_title) :
                         context.getString(R.string.message_send_failed_title);
-            
+
             description = context.getString(R.string.message_failed_body);
             threadId = (msgThreadId[0] != 0 ? msgThreadId[0] : 0);
-            
+
             failedIntent = new Intent(context, ComposeMessageActivity.class);
-            failedIntent.putExtra("thread_id", threadId);         
+            failedIntent.putExtra("thread_id", threadId);
             failedIntent.putExtra("undelivered_flag", true);
         }
 
@@ -520,14 +532,14 @@ public class MessagingNotification {
             String ringtoneStr = sp.getString(MessagingPreferenceActivity.NOTIFICATION_RINGTONE, null);
             notification.sound = TextUtils.isEmpty(ringtoneStr) ? null : Uri.parse(ringtoneStr);
         }
-        
+
         if (isDownload) {
             nm.notify(DOWNLOAD_FAILED_NOTIFICATION_ID, notification);
         } else {
             nm.notify(MESSAGE_FAILED_NOTIFICATION_ID, notification);
         }
     }
-    
+
     // threadIdResult[0] contains the thread id of the first message.
     // threadIdResult[1] is nonzero if the thread ids of all the messages are the same.
     // You can pass in null for threadIdResult.
@@ -542,7 +554,7 @@ public class MessagingNotification {
         try {
             if (threadIdResult != null && undeliveredCursor.moveToFirst()) {
                 threadIdResult[0] = undeliveredCursor.getLong(0);
-                
+
                 if (threadIdResult.length >= 2) {
                     // Test to see if all the undelivered messages belong to the same thread.
                     long firstId = threadIdResult[0];
@@ -568,19 +580,19 @@ public class MessagingNotification {
             notifySendFailed(context);      // rebuild and adjust the message count if necessary.
         }
     }
-    
-    /** 
+
+    /**
      *  If all the undelivered messages belong to "threadId", cancel the notification.
      */
     public static void updateSendFailedNotificationForThread(Context context, long threadId) {
         long[] msgThreadId = {0, 0};
-        if (getUndeliveredMessageCount(context, msgThreadId) > 0 
+        if (getUndeliveredMessageCount(context, msgThreadId) > 0
                 && msgThreadId[0] == threadId
                 && msgThreadId[1] != 0) {
             cancelNotification(context, MESSAGE_FAILED_NOTIFICATION_ID);
         }
     }
-    
+
     private static int getDownloadFailedMessageCount(Context context) {
         // Look for any messages in the MMS Inbox that are of the type
         // NOTIFICATION_IND (i.e. not already downloaded) and in the
@@ -605,5 +617,41 @@ public class MessagingNotification {
         if (getDownloadFailedMessageCount(context) < 1) {
             cancelNotification(context, DOWNLOAD_FAILED_NOTIFICATION_ID);
         }
+    }
+
+    /**
+     * Parse the user provided custom vibrate pattern into a long[]
+     * Borrowed from SMSPopup
+     */
+    public static long[] parseVibratePattern(String stringPattern) {
+      ArrayList<Long> arrayListPattern = new ArrayList<Long>();
+      Long l;
+      String[] splitPattern = stringPattern.split(",");
+      int VIBRATE_PATTERN_MAX_SECONDS = 60000;
+      int VIBRATE_PATTERN_MAX_PATTERN = 100;
+
+      for (int i = 0; i < splitPattern.length; i++) {
+        try {
+          l = Long.parseLong(splitPattern[i].trim());
+        } catch (NumberFormatException e) {
+          return null;
+        }
+        if (l > VIBRATE_PATTERN_MAX_SECONDS) {
+          return null;
+        }
+        arrayListPattern.add(l);
+      }
+
+      // TODO: can i just cast the whole ArrayList into long[]?
+      int size = arrayListPattern.size();
+      if (size > 0 && size < VIBRATE_PATTERN_MAX_PATTERN) {
+        long[] pattern = new long[size];
+        for (int i = 0; i < pattern.length; i++) {
+          pattern[i] = arrayListPattern.get(i);
+        }
+        return pattern;
+      }
+
+      return null;
     }
 }
