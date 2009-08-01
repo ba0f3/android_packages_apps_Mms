@@ -251,7 +251,7 @@ public class ComposeMessageActivity extends Activity
     private boolean mSendOnEnter;           // A toggle setting for enable/disable Send-on-Enter feature
     private boolean mBlackBackground;       // Option for switch background from white to black
     private CharSequence mSignature;        // Append text at the end of all outgoing messages
-    private String mSignatureAutoAppend;    // Setting for Signature auto-append
+    private int mSignatureAutoAppend;    // Setting for Signature auto-append
 
     private View mTopPanel;                 // View containing the recipient and subject editors
     private View mBottomPanel;              // View containing the text editor, send button, ec.
@@ -1589,7 +1589,7 @@ public class ComposeMessageActivity extends Activity
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
         mSignature = prefs.getString(MessagingPreferenceActivity.SIGNATURE, "");
-        mSignatureAutoAppend = prefs.getString(MessagingPreferenceActivity.SIGNATURE_AUTO_APPEND, "0");
+        mSignatureAutoAppend = prefs.getInt(MessagingPreferenceActivity.SIGNATURE_AUTO_APPEND, 0);
         mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
         mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
         if(!mBlackBackground) {
@@ -1850,7 +1850,7 @@ public class ComposeMessageActivity extends Activity
             mTextEditor.setHint(R.string.open_keyboard_to_compose_message);
         }
         // Auto-append signature on compose
-        if((mSignature != null) && mSignatureAutoAppend.equals("1") && (mMsgText.length() == 0)) {
+        if((mSignature != null) && (mSignatureAutoAppend == 1) && (mMsgText.length() == 0)) {
             appendSignature();
         }
     }
@@ -3060,7 +3060,7 @@ public class ComposeMessageActivity extends Activity
         final String[] dests = mRecipientList.getToNumbers();
 
         // Auto-append signature on send
-        if((mSignature != null) && mSignatureAutoAppend.equals("2")) {
+        if((mSignature != null) && (mSignatureAutoAppend == 2)) {
             appendSignature();
         }
 
