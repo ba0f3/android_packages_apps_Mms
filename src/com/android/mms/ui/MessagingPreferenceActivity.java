@@ -190,13 +190,4 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
             throw new IllegalArgumentException("Unknown MMS resubmission mode.");
         }
     }
-
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        //Log.v("onPreferenceTreeClick", "preferenceScreen: " + preferenceScreen.toString());
-        Log.v("onPreferenceTreeClick", "preference: " + preference.toString());
-        //preference.getSharedPreferences().;
-        Log.v("preference.getKey().toString()", preference.getKey().toString());
-        return false;
-    }
 }
