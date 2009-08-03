@@ -2020,7 +2020,7 @@ public class ComposeMessageActivity extends Activity
         menu.add(0, MENU_CONVERSATION_LIST, 0, R.string.all_threads).setIcon(
                 com.android.internal.R.drawable.ic_menu_friendslist);
         if(!mSignature.equals("")) {
-            menu.add(0, MENU_APPEND_SIGNATURE, 0, R.string.append_signature).setIcon(com.android.internal.R.drawable.ic_menu_edit);
+            menu.add(0, MENU_APPEND_SIGNATURE, 0, R.string.append_signature).setIcon(R.drawable.ic_append_signature);
         }
 
         buildAddAddressToContactMenuItem(menu);

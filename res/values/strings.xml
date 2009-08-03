@@ -618,15 +618,23 @@
     <string name="pref_summary_mms_notification_led">Blink LED when message received</string>
     <string name="pref_title_mms_notification_led_color">LED color</string>
     <string name="pref_summary_mms_notification_led_color">Change LED color</string>
-    <string name="pref_dialogtitle_mms_notification_led_color">Select your LED color</string>
+    <string name="pref_dialogtitle_mms_notification_led_color">Select LED color</string>
+    <string name="pref_title_mms_notification_led_pattern">LED blink rate</string>
+    <string name="pref_summary_mms_notification_led_pattern">Set LED blink speed</string>
 
+    <string name="pref_mms_notification_led_color_default" translatable="false">green</string>
     <string name="pref_mms_notification_led_color_green">Green/Default</string>
-    <string name="pref_mms_notification_led_color_white">White</string>
     <string name="pref_mms_notification_led_color_red">Red</string>
     <string name="pref_mms_notification_led_color_blue">Blue</string>
-    <string name="pref_mms_notification_led_color_yellow">Yellow</string>
+    <string name="pref_mms_notification_led_color_orange">Orange</string>
     <string name="pref_mms_notification_led_color_cyan">Cyan</string>
     <string name="pref_mms_notification_led_color_magenta">Magenta</string>
+    <string name="pref_mms_notification_led_color_custom">Custom..</string>
+    <string name="pref_mms_notification_led_color_custom_dialog_red">Red:</string>
+    <string name="pref_mms_notification_led_color_custom_dialog_green">Green:</string>
+    <string name="pref_mms_notification_led_color_custom_dialog_blue">Blue:</string>
+    <string name="pref_mms_notification_led_color_custom_dialog_preview">Preview:</string>
+    <string name="pref_mms_notification_led_color_custom_set">Custom LED color set</string>
 
     <string name="pref_title_mms_notification_vibrate_settings">Vibrate settings</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Vibrate pattern</string>

@@ -390,8 +390,8 @@ public class MessagingNotification {
         if (isNew) {
             boolean vibrate = sp.getBoolean(MessagingPreferenceActivity.NOTIFICATION_VIBRATE, true);
             if (vibrate) {
-                String mVibratePattern = sp.getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_PATTERN, "0,1200");
-                if(!mVibratePattern.equals("")) {
+                String mVibratePattern = sp.getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_PATTERN, "normal");
+                if(!mVibratePattern.equals("normal")) {
                     notification.vibrate = parseVibratePattern(mVibratePattern);
                 } else {
                     notification.defaults |= Notification.DEFAULT_VIBRATE;
@@ -408,7 +408,11 @@ public class MessagingNotification {
         boolean mBlinkLed = sp.getBoolean(MessagingPreferenceActivity.NOTIFICATION_LED, true);
         if(mBlinkLed) {
             // default color is green: 0xff00ff00
-            int mLedColor = Color.parseColor(sp.getString(MessagingPreferenceActivity.NOTIFICATION_LED_COLOR, "green"));
+            String sLedColor = sp.getString(MessagingPreferenceActivity.NOTIFICATION_LED_COLOR, context.getString(R.string.pref_mms_notification_led_color_default));
+            if(sLedColor.equals("custom")) {
+                sLedColor = sp.getString(MessagingPreferenceActivity.NOTIFICATION_LED_CUSTOM, context.getString(R.string.pref_mms_notification_led_color_default));
+            }
+            int mLedColor = Color.parseColor(sLedColor);
             notification.ledARGB = mLedColor;
             notification.ledOnMS = 500;
             notification.ledOffMS = 2000;

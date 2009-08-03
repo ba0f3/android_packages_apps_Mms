@@ -68,6 +68,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final String SIGNATURE_AUTO_APPEND        = "pref_key_mms_signature_auto_append";
     public static final String NOTIFICATION_LED             = "pref_key_mms_notification_led";
     public static final String NOTIFICATION_LED_COLOR       = "pref_key_mms_notification_led_color";
+    public static final String NOTIFICATION_LED_CUSTOM      = "pref_key_mms_notification_led_custom";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
