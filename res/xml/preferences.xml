@@ -77,9 +77,10 @@
                               android:defaultValue="true"
                               android:title="@string/pref_title_mms_notification_led"
                               android:summary="@string/pref_summary_mms_notification_led" />
-          <ListPreference android:key="pref_key_mms_notification_led_color"
+          <com.android.mms.preferences.LedColorListPreference
+                          android:key="pref_key_mms_notification_led_color"
                           android:dependency="pref_key_mms_notification_led"
-                          android:defaultValue="green"
+                          android:defaultValue="@string/pref_mms_notification_led_color_default"
                           android:title="@string/pref_title_mms_notification_led_color"
                           android:summary="@string/pref_summary_mms_notification_led_color"
                           android:entries="@array/pref_mms_notification_led_color_entries"
@@ -94,7 +95,7 @@
                               android:summary="@string/pref_summary_notification_vibrate" />
           <ListPreference android:key="pref_key_mms_notification_vibrate_pattern"
                           android:dependency="pref_key_vibrate"
-                          android:defaultValue="0,1200"
+                          android:defaultValue="normal"
                           android:title="@string/pref_title_mms_notification_vibrate_pattern"
                           android:summary="@string/pref_summary_mms_notification_vibrate_pattern"
                           android:entries="@array/pref_mms_notification_vibrate_pattern_entries"
