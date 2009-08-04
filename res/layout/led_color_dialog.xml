@@ -20,31 +20,6 @@
       android:paddingRight="5sp"
       android:paddingBottom="2sp"
       android:paddingTop="2sp">
-      <!--
-      <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:id="@+id/PreviewLinearLayout"
-        android:gravity="left|center">
-        <TextView
-          android:layout_height="wrap_content"
-          android:id="@+id/PreviewTextView"
-          android:layout_width="wrap_content"
-          android:layout_gravity="center"
-          android:gravity="right"
-          android:text="@string/pref_mms_notification_led_color_custom_dialog_preview"
-          android:paddingRight="15sp"></TextView>
-        <ImageView
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:id="@+id/PreviewImageView"
-          android:layout_width="wrap_content"
-          android:maxHeight="30sp"
-          android:minHeight="30sp"
-          android:maxWidth="50sp"
-          android:minWidth="50sp"></ImageView>
-      </LinearLayout>
-       -->
       <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

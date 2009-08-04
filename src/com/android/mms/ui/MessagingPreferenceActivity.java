@@ -17,6 +17,8 @@
 
 package com.android.mms.ui;
 
+import java.util.ArrayList;
+
 import com.android.mms.R;
 import com.google.android.mms.pdu.PduHeaders;
 
@@ -69,6 +71,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final String NOTIFICATION_LED             = "pref_key_mms_notification_led";
     public static final String NOTIFICATION_LED_COLOR       = "pref_key_mms_notification_led_color";
     public static final String NOTIFICATION_LED_CUSTOM      = "pref_key_mms_notification_led_custom";
+    public static final String NOTIFICATION_LED_BLINK       = "pref_key_mms_notification_led_blink";
+    public static final String NOTIFICATION_LED_BLINK_CUSTOM= "pref_key_mms_notification_led_blink_custom";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -191,4 +195,74 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
             throw new IllegalArgumentException("Unknown MMS resubmission mode.");
         }
     }
+
+    /**
+     * Parse the user provided custom vibrate pattern into a long[]
+     * Borrowed from SMSPopup
+     */
+    public static long[] parseVibratePattern(String stringPattern) {
+      ArrayList<Long> arrayListPattern = new ArrayList<Long>();
+      Long l;
+      String[] splitPattern = stringPattern.split(",");
+      int VIBRATE_PATTERN_MAX_SECONDS = 60000;
+      int VIBRATE_PATTERN_MAX_PATTERN = 100;
+
+      for (int i = 0; i < splitPattern.length; i++) {
+        try {
+          l = Long.parseLong(splitPattern[i].trim());
+        } catch (NumberFormatException e) {
+          return null;
+        }
+        if (l > VIBRATE_PATTERN_MAX_SECONDS) {
+          return null;
+        }
+        arrayListPattern.add(l);
+      }
+
+      // TODO: can i just cast the whole ArrayList into long[]?
+      int size = arrayListPattern.size();
+      if (size > 0 && size < VIBRATE_PATTERN_MAX_PATTERN) {
+        long[] pattern = new long[size];
+        for (int i = 0; i < pattern.length; i++) {
+          pattern[i] = arrayListPattern.get(i);
+        }
+        return pattern;
+      }
+
+      return null;
+    }
+
+    public static int[] parseLEDPattern(String stringPattern) {
+        int[] arrayPattern = new int[2];
+        int on, off;
+        String[] splitPattern = stringPattern.split(",");
+
+        if (splitPattern.length != 2) {
+          return null;
+        }
+
+        int LED_PATTERN_MIN_SECONDS = 0;
+        int LED_PATTERN_MAX_SECONDS = 60000;
+
+        try {
+          on = Integer.parseInt(splitPattern[0]);
+        } catch (NumberFormatException e) {
+          return null;
+        }
+
+        try {
+          off = Integer.parseInt(splitPattern[1]);
+        } catch (NumberFormatException e) {
+          return null;
+        }
+
+        if (on >= LED_PATTERN_MIN_SECONDS && on <= LED_PATTERN_MAX_SECONDS &&
+            off >= LED_PATTERN_MIN_SECONDS && off <= LED_PATTERN_MAX_SECONDS) {
+          arrayPattern[0] = on;
+          arrayPattern[1] = off;
+          return arrayPattern;
+        }
+
+        return null;
+      }
 }

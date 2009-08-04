@@ -1,7 +1,6 @@
 package com.android.mms.preferences;
 
 import com.android.mms.R;
-import com.android.mms.ui.ComposeMessageActivity;
 import com.android.mms.ui.MessagingPreferenceActivity;
 
 import android.app.AlertDialog;
@@ -19,7 +18,6 @@ import android.view.View;
 import android.os.Parcelable;
 import android.preference.ListPreference;
 import android.preference.PreferenceManager;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +34,6 @@ public class LedColorListPreference extends ListPreference implements
     private TextView mRedTextView;
     private TextView mBlueTextView;
     private TextView mGreenTextView;
-    //private ImageView mPreviewImage;
     private Notification mNotification;
     private NotificationManager mNotificationManager;
     private boolean mDialogShowing;
@@ -97,8 +94,6 @@ public class LedColorListPreference extends ListPreference implements
         mRedTextView = (TextView) v.findViewById(R.id.RedTextView);
         mGreenTextView = (TextView) v.findViewById(R.id.GreenTextView);
         mBlueTextView = (TextView) v.findViewById(R.id.BlueTextView);
-
-        //mPreviewImage = (ImageView) v.findViewById(R.id.PreviewImageView);
 
         mRedSeekBar.setProgress(red);
         mGreenSeekBar.setProgress(green);
@@ -227,7 +222,6 @@ public class LedColorListPreference extends ListPreference implements
     private void updateColorPreview() {
         int color = Color.rgb(mRedSeekBar.getProgress(), mGreenSeekBar
                 .getProgress(), mBlueSeekBar.getProgress());
-        //mPreviewImage.setBackgroundColor(color);
         mNotification.ledARGB = color;
         mNotificationManager.notify(0, mNotification);
     }

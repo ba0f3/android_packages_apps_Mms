@@ -25,24 +25,23 @@
         android:layout_height="fill_parent"
         android:gravity="left"
         android:layout_weight="1">
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/SeekBarOnLabel"
-        android:text="@string/pref_mms_notification_led_blink_custom_dialog_on"
-        android:paddingTop="5sp" />
-      <TextView
-        android:id="@+id/SeekBarOnMsLabel"
-        android:layout_width="40dip"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:text="@string/pref_mms_notification_led_blink_init"
-        android:gravity="right" />
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="0dip"
-        android:text="@string/pref_mms_notification_led_blink_custom_dialog_ms" />
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/SeekBarOnLabel"
+          android:text="@string/pref_mms_notification_led_blink_custom_dialog_on"
+          android:paddingTop="5sp" />
+        <TextView
+          android:id="@+id/SeekBarOnMsLabel"
+          android:layout_width="40dip"
+          android:layout_height="wrap_content"
+          android:text="@string/pref_mms_notification_led_blink_init"
+          android:gravity="right" />
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="0dip"
+          android:text="@string/pref_mms_notification_led_blink_custom_dialog_ms" />
       </LinearLayout>
       <LinearLayout
         android:orientation="horizontal"
@@ -72,7 +71,6 @@
         android:id="@+id/SeekBarOffMsLabel"
         android:layout_width="40dip"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
         android:text="@string/pref_mms_notification_led_blink_init"
         android:gravity="right" />
       <TextView
