@@ -2150,22 +2150,9 @@ public class ComposeMessageActivity extends Activity
                 break;
 
             case AttachmentTypeSelectorAdapter.RECORD_VIDEO: {
-                // Set video size limit. Subtract 1K for some text.
-                long sizeLimit = MmsConfig.getMaxMessageSize() - 1024;
-                if (mSlideshow != null) {
-                    sizeLimit -= mSlideshow.getCurrentMessageSize();
-                }
-                if (sizeLimit > 0) {
-                    Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-                    intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
-                    intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT, sizeLimit);
-                    startActivityForResult(intent, REQUEST_CODE_TAKE_VIDEO);
-                }
-                else {
-                    Toast.makeText(this,
-                            getString(R.string.message_too_big_for_video),
-                            Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+                startActivityForResult(intent, REQUEST_CODE_TAKE_VIDEO);
             }
                 break;
 
