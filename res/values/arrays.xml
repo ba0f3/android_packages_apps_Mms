@@ -76,22 +76,22 @@
 
     <string-array name="pref_mms_notification_led_color_entries">
         <item>@string/pref_mms_notification_led_color_green</item>
-        <item>@string/pref_mms_notification_led_color_white</item>
         <item>@string/pref_mms_notification_led_color_red</item>
         <item>@string/pref_mms_notification_led_color_blue</item>
-        <item>@string/pref_mms_notification_led_color_yellow</item>
+        <item>@string/pref_mms_notification_led_color_orange</item>
         <item>@string/pref_mms_notification_led_color_cyan</item>
         <item>@string/pref_mms_notification_led_color_magenta</item>
+        <item>@string/pref_mms_notification_led_color_custom</item>
     </string-array>
 
     <string-array name="pref_mms_notification_led_color_values" translatable="false">
         <item>green</item>
-        <item>white</item>
         <item>red</item>
         <item>blue</item>
         <item>yellow</item>
         <item>cyan</item>
         <item>magenta</item>
+        <item>custom</item>
     </string-array>
 
     <string-array name="pref_mms_notification_vibrate_pattern_entries">
@@ -101,7 +101,7 @@
       <item>Multiple Long</item>
    </string-array>
     <string-array name="pref_mms_notification_vibrate_pattern_values">
-      <item>0,1200</item>
+      <item>normal</item>
       <item>0,2500</item>
       <item>0,300,100,300,100,300,100,300,100,300</item>
       <item>0,800,200,800,200,800</item>
