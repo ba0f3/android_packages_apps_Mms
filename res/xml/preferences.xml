@@ -86,6 +86,15 @@
                           android:entries="@array/pref_mms_notification_led_color_entries"
                           android:entryValues="@array/pref_mms_notification_led_color_values"
                           android:dialogTitle="@string/pref_dialogtitle_mms_notification_led_color" />
+        <com.android.mms.preferences.LedBlinkPatternListPreference
+                          android:key="pref_key_mms_notification_led_blink"
+                          android:dependency="pref_key_mms_notification_led"
+                          android:defaultValue="@string/pref_mms_notification_led_blink_default"
+                          android:title="@string/pref_title_mms_notification_led_blink"
+                          android:summary="@string/pref_summary_mms_notification_led_blink"
+                          android:entries="@array/pref_mms_notification_led_blink_pattern_entries"
+                          android:entryValues="@array/pref_mms_notification_led_blink_pattern_values"
+                          android:dialogTitle="@string/pref_title_mms_notification_led_blink" />
         </PreferenceCategory>
         <PreferenceCategory android:title="@string/pref_title_mms_notification_vibrate_settings">
           <CheckBoxPreference android:layout="?android:attr/preferenceLayoutChild"

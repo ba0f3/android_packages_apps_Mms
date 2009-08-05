@@ -392,7 +392,7 @@ public class MessagingNotification {
             if (vibrate) {
                 String mVibratePattern = sp.getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_PATTERN, "normal");
                 if(!mVibratePattern.equals("normal")) {
-                    notification.vibrate = parseVibratePattern(mVibratePattern);
+                    notification.vibrate = MessagingPreferenceActivity.parseVibratePattern(mVibratePattern);
                 } else {
                     notification.defaults |= Notification.DEFAULT_VIBRATE;
                 }
@@ -412,10 +412,15 @@ public class MessagingNotification {
             if(sLedColor.equals("custom")) {
                 sLedColor = sp.getString(MessagingPreferenceActivity.NOTIFICATION_LED_CUSTOM, context.getString(R.string.pref_mms_notification_led_color_default));
             }
+            String sLedPattern = sp.getString(MessagingPreferenceActivity.NOTIFICATION_LED_BLINK, context.getString(R.string.pref_mms_notification_led_blink_default));
+            if(sLedPattern.equals("custom")) {
+                sLedPattern = sp.getString(MessagingPreferenceActivity.NOTIFICATION_LED_BLINK_CUSTOM, context.getString(R.string.pref_mms_notification_led_blink_default));
+            }
             int mLedColor = Color.parseColor(sLedColor);
+            int mLedPattern[] = MessagingPreferenceActivity.parseLEDPattern(sLedPattern);
             notification.ledARGB = mLedColor;
-            notification.ledOnMS = 500;
-            notification.ledOffMS = 2000;
+            notification.ledOnMS = mLedPattern[0];
+            notification.ledOffMS = mLedPattern[1];
         }
 
         NotificationManager nm = (NotificationManager)
@@ -621,41 +626,5 @@ public class MessagingNotification {
         if (getDownloadFailedMessageCount(context) < 1) {
             cancelNotification(context, DOWNLOAD_FAILED_NOTIFICATION_ID);
         }
-    }
-
-    /**
-     * Parse the user provided custom vibrate pattern into a long[]
-     * Borrowed from SMSPopup
-     */
-    public static long[] parseVibratePattern(String stringPattern) {
-      ArrayList<Long> arrayListPattern = new ArrayList<Long>();
-      Long l;
-      String[] splitPattern = stringPattern.split(",");
-      int VIBRATE_PATTERN_MAX_SECONDS = 60000;
-      int VIBRATE_PATTERN_MAX_PATTERN = 100;
-
-      for (int i = 0; i < splitPattern.length; i++) {
-        try {
-          l = Long.parseLong(splitPattern[i].trim());
-        } catch (NumberFormatException e) {
-          return null;
-        }
-        if (l > VIBRATE_PATTERN_MAX_SECONDS) {
-          return null;
-        }
-        arrayListPattern.add(l);
-      }
-
-      // TODO: can i just cast the whole ArrayList into long[]?
-      int size = arrayListPattern.size();
-      if (size > 0 && size < VIBRATE_PATTERN_MAX_PATTERN) {
-        long[] pattern = new long[size];
-        for (int i = 0; i < pattern.length; i++) {
-          pattern[i] = arrayListPattern.get(i);
-        }
-        return pattern;
-      }
-
-      return null;
     }
 }
