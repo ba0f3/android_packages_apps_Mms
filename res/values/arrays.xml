@@ -82,7 +82,7 @@
     <item>@string/pref_mms_notification_led_color_orange</item>
     <item>@string/pref_mms_notification_led_color_cyan</item>
     <item>@string/pref_mms_notification_led_color_magenta</item>
-    <item>@string/pref_mms_notification_led_custom</item>
+    <item>@string/pref_mms_custom_option</item>
   </string-array>
   <string-array name="pref_mms_notification_led_color_values"
     translatable="false">
@@ -97,9 +97,9 @@
 
   <string-array name="pref_mms_notification_led_blink_pattern_entries">
     <item>@string/pref_mms_notification_led_blink_fast</item>
-    <item>@string/pref_mms_notification_led_normal</item>
+    <item>@string/pref_mms_normal_option</item>
     <item>@string/pref_mms_notification_led_blink_slow</item>
-    <item>@string/pref_mms_notification_led_custom</item>
+    <item>@string/pref_mms_custom_option</item>
   </string-array>
   <string-array name="pref_mms_notification_led_blink_pattern_values"
     translatable="false">
@@ -110,7 +110,7 @@
   </string-array>
 
   <string-array name="pref_mms_notification_vibrate_pattern_entries">
-    <item>@string/pref_mms_notification_led_normal</item>
+    <item>@string/pref_mms_normal_option</item>
     <item>Long Vibrate</item>
     <item>Multiple Short</item>
     <item>Multiple Long</item>
@@ -120,5 +120,25 @@
     <item>0,2500</item>
     <item>0,300,100,300,100,300,100,300,100,300</item>
     <item>0,800,200,800,200,800</item>
+  </string-array>
+
+  <string-array name="pref_mms_user_agent_entries">
+    <item>Default Android</item>
+    <item>Nokia N95</item>
+    <item>iPhone (3.0)</item>
+    <item>BlackBerry 8800</item>
+    <item>Sony Ericsson W800i</item>
+    <item>SoftBank X01T</item>
+    <item>@string/pref_mms_custom_option</item>
+  </string-array>
+
+  <string-array name="pref_mms_user_agent_values">
+    <item>@string/pref_key_mms_user_agent_default</item>
+    <item>NokiaN95/11.0.026; Series60/3.1 Profile/MIDP-2.0 Configuration/CLDC-1.1</item>
+    <item>iPhoneOS/3.0 (7A341)</item>
+    <item>BlackBerry8800/4.2.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/100</item>
+    <item>SonyEricssonW800i/R1L</item>
+    <item>SoftBank/1.0/X01T/SCJ001</item>
+    <item>custom</item>
   </string-array>
 </resources>

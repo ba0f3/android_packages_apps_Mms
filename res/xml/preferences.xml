@@ -132,5 +132,13 @@
                         android:title="@string/pref_title_mms_black_background"
                         android:summary="@string/pref_summary_mms_black_background"
                         android:defaultValue="false" />
+    <com.android.mms.preferences.UserAgentListPreference
+                        android:key="pref_key_mms_user_agent"
+                        android:defaultValue="@string/pref_key_mms_user_agent_default"
+                        android:title="@string/pref_title_mms_user_agent"
+                        android:summary="@string/pref_summary_mms_user_agent"
+                        android:entries="@array/pref_mms_user_agent_entries"
+                        android:entryValues="@array/pref_mms_user_agent_values"
+                        android:dialogTitle="@string/pref_title_mms_user_agent" />
   </PreferenceCategory>
 </PreferenceScreen>

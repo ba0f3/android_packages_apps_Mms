@@ -620,8 +620,8 @@
     <string name="pref_summary_mms_notification_led_color">Change LED color</string>
     <string name="pref_dialogtitle_mms_notification_led_color">Select LED color</string>
 
-    <string name="pref_mms_notification_led_normal">Normal</string>
-    <string name="pref_mms_notification_led_custom">Custom..</string>
+    <string name="pref_mms_normal_option">Normal</string>
+    <string name="pref_mms_custom_option">Custom..</string>
 
     <string name="pref_mms_notification_led_color_default" translatable="false">green</string>
     <string name="pref_mms_notification_led_color_green">Green/Default</string>
@@ -653,5 +653,10 @@
     <string name="pref_title_mms_notification_vibrate_settings">Vibrate settings</string>
     <string name="pref_title_mms_notification_vibrate_pattern">Vibrate pattern</string>
     <string name="pref_summary_mms_notification_vibrate_pattern">Change vibrate pattern</string>
+
+    <string name="pref_key_mms_user_agent_default">Android-Mms/0.1</string>
+    <string name="pref_title_mms_user_agent">Custom User-Agent</string>
+    <string name="pref_summary_mms_user_agent">Advanced setting for spoof phone as other branch</string>
+    <string name="pref_mms_user_agent_custom_set">Custom User Agent set to:\n</string>
 </resources>
 
