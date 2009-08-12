@@ -64,6 +64,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final String NOTIFICATION_RINGTONE        = "pref_key_ringtone";
     public static final String AUTO_RETRIEVAL               = "pref_key_mms_auto_retrieval";
     public static final String RETRIEVAL_DURING_ROAMING     = "pref_key_mms_retrieval_during_roaming";
+    public static final String USERAGENT					= "pref_key_mms_user_agent";
     public static final String SEND_ON_ENTER                = "pref_key_mms_send_on_enter";
     public static final String BLACK_BACKGROUND             = "pref_key_mms_black_background";
     public static final String SIGNATURE                    = "pref_key_mms_signature";

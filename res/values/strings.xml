@@ -332,6 +332,17 @@
     <!-- Settings item description for boolean MMS auto-retrieve while roaming option -->
     <string name="pref_summary_mms_retrieval_during_roaming">Automatically retrieve messages while roaming</string>
 
+    <!-- Settings item title for User-Agent Alteration-->
+    <string name="pref_title_mms_user_agent">MMS User-Agent</string>
+    <!-- Settings item description for User-Agent Alteration -->
+    <string name="pref_summary_mms_user_agent">Change MMS HTTP User-Agent</string>
+    <!-- Settings item description for User-Agent Alteration -->
+    <string name="pref_key_mms_user_agent">MMS User-Agent</string>
+    <!-- Settings item description for User-Agent Alteration -->
+    <string name="pref_dialogtitle_mms_user_agent">Change MMS HTTP User-Agent</string>
+    <!-- Settings item default value for User-Agent Alteration -->
+    <string name="pref_default_mms_user_agent">Android-Mms/0.1</string>
+
     <!-- Label prepended to recipient's name in Undelivered Messages screen -->
     <string name="to_label">"To "</string>
 
