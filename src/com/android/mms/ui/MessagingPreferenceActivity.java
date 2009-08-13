@@ -75,6 +75,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final String NOTIFICATION_LED_BLINK_CUSTOM= "pref_key_mms_notification_led_blink_custom";
     public static final String USER_AGENT                   = "pref_key_mms_user_agent";
     public static final String USER_AGENT_CUSTOM            = "pref_key_mms_user_agent_custom";
+    public static final String CUSTOM_SCREEN_TIMEOUT        = "pref_key_mms_custom_screen_timeout";
+    public static final String CUSTOM_SCREEN_TIMEOUT_DIM    = "pref_key_mms_custom_screen_timeout_dim";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;

@@ -140,5 +140,23 @@
                         android:entries="@array/pref_mms_user_agent_entries"
                         android:entryValues="@array/pref_mms_user_agent_values"
                         android:dialogTitle="@string/pref_title_mms_user_agent" />
+    <PreferenceScreen android:key="pref_key_mms_custom_screen_timeout"
+                      android:title="@string/pref_title_mms_custom_screen_timeout"
+                      android:summary="@string/pref_summary_mms_custom_screen_timeout" >
+        <PreferenceCategory android:title="@string/pref_title_mms_custom_screen_timeout">
+        <ListPreference android:key="pref_key_mms_custom_screen_timeout"
+                        android:defaultValue="0"
+                        android:title="@string/pref_title_mms_set_custom_screen_timeout"
+                        android:entries="@array/pref_mms_custom_screen_timeout_entries"
+                        android:entryValues="@array/pref_mms_custom_screen_timeout_values"
+                        android:dialogTitle="@string/pref_dialogtitle_mms_custom_screen_timeout" />
+        <CheckBoxPreference
+                        android:key="pref_key_mms_custom_screen_timeout_dim"
+                        android:title="@string/pref_title_custom_screen_timeout_dim"
+                        android:summaryOn="@string/pref_summaryon_custom_screen_timeout_dim"
+                        android:summaryOff="@string/pref_summaryoff_custom_screen_timeout_dim"
+                        android:defaultValue="true" />
+        </PreferenceCategory>
+    </PreferenceScreen>
   </PreferenceCategory>
 </PreferenceScreen>

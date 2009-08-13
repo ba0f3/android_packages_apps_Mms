@@ -81,6 +81,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.preference.PreferenceManager;
 import android.provider.Contacts;
 import android.provider.Contacts.People;
@@ -251,7 +253,10 @@ public class ComposeMessageActivity extends Activity
     private boolean mSendOnEnter;           // A toggle setting for enable/disable Send-on-Enter feature
     private boolean mBlackBackground;       // Option for switch background from white to black
     private CharSequence mSignature;        // Append text at the end of all outgoing messages
-    private int mSignatureAutoAppend;    // Setting for Signature auto-append
+    private int mSignatureAutoAppend;       // Setting for Signature auto-append
+    private int mScreenTimeout;             // Number of seconds that screen stays awake for
+    private WakeLock mScreenTimeoutWakeLock;// Custom screen timeout
+
 
     private View mTopPanel;                 // View containing the recipient and subject editors
     private View mBottomPanel;              // View containing the text editor, send button, ec.
@@ -1597,6 +1602,13 @@ public class ComposeMessageActivity extends Activity
         } else {
             setContentView(R.layout.compose_message_activity_black);
         }
+        mScreenTimeout = Integer.parseInt(prefs.getString(MessagingPreferenceActivity.CUSTOM_SCREEN_TIMEOUT, "0"))*1000;
+        if(mScreenTimeout != 0) {
+            boolean dimscreen = prefs.getBoolean(MessagingPreferenceActivity.CUSTOM_SCREEN_TIMEOUT_DIM, true);
+            PowerManager pm = (PowerManager)((Context)ComposeMessageActivity.this).getSystemService(Context.POWER_SERVICE);
+            mScreenTimeoutWakeLock = pm.newWakeLock(dimscreen ? PowerManager.SCREEN_DIM_WAKE_LOCK : PowerManager.SCREEN_BRIGHT_WAKE_LOCK, TAG);
+            mScreenTimeoutWakeLock.setReferenceCounted(false);
+        }
 
         setProgressBarVisibility(false);
 
@@ -1711,6 +1723,14 @@ public class ComposeMessageActivity extends Activity
     protected void onResume() {
         super.onResume();
         startPresencePollingRequest();
+
+        if(mScreenTimeout != 0) { // use custom screen timeout
+            if(mScreenTimeout > 0) {
+                mScreenTimeoutWakeLock.acquire(mScreenTimeout);
+            } else { // never timeout
+                mScreenTimeoutWakeLock.acquire();
+            }
+        }
     }
 
     private void updateSendFailedNotification() {
@@ -1786,13 +1806,16 @@ public class ComposeMessageActivity extends Activity
     @Override
     protected void onPause() {
         super.onPause();
+        System.out.println(mScreenTimeoutWakeLock);
+        if((mScreenTimeout != 0) && mScreenTimeoutWakeLock.isHeld()) {
+            mScreenTimeoutWakeLock.release();
+        }
         cancelPresencePollingRequests();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
         if (mMsgListAdapter != null) {
             mMsgListAdapter.changeCursor(null);
         }
@@ -3603,5 +3626,4 @@ public class ComposeMessageActivity extends Activity
             setPresenceIcon(0);
         }
     }
-
 }
