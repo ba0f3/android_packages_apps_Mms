@@ -2533,7 +2533,6 @@ public class ComposeMessageActivity extends Activity
 
         switch (attachmentType) {
             case AttachmentEditor.EMPTY:
-                Log.e(TAG, "drawBottomPanel: empty attachment, mMessageState: " + mMessageState);
                 throw new IllegalArgumentException(
                         "Type of the attachment may not be EMPTY.");
             case AttachmentEditor.SLIDESHOW_ATTACHMENT:

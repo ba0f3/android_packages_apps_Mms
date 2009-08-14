@@ -22,15 +22,11 @@ import java.util.ArrayList;
 import com.android.mms.R;
 import com.google.android.mms.pdu.PduHeaders;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.util.Log;
 
 /**
  * With this activity, users can set preferences for MMS and SMS and
