@@ -158,5 +158,9 @@
                         android:defaultValue="true" />
         </PreferenceCategory>
     </PreferenceScreen>
+    <CheckBoxPreference android:key="pref_key_mms_back_to_all_threads"
+                        android:title="@string/pref_title_back_to_all_threads"
+                        android:summary="@string/pref_summary_back_to_all_threads"
+                        android:defaultValue="false" />
   </PreferenceCategory>
 </PreferenceScreen>

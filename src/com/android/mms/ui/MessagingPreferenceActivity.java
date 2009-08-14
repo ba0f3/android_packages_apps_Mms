@@ -74,6 +74,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final String USER_AGENT_CUSTOM            = "pref_key_mms_user_agent_custom";
     public static final String CUSTOM_SCREEN_TIMEOUT        = "pref_key_mms_custom_screen_timeout";
     public static final String CUSTOM_SCREEN_TIMEOUT_DIM    = "pref_key_mms_custom_screen_timeout_dim";
+    public static final String BACK_TO_ALL_THREADS          = "pref_key_mms_back_to_all_threads";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;

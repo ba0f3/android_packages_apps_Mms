@@ -168,8 +168,8 @@ public class ComposeMessageActivity extends Activity
     public static final int REQUEST_CODE_CREATE_SLIDESHOW = 16;
 
     private static final String TAG = "ComposeMessageActivity";
-    private static final boolean DEBUG = false;
-    private static final boolean TRACE = false;
+    private static final boolean DEBUG = true;
+    private static final boolean TRACE = true;
     private static final boolean LOCAL_LOGV = DEBUG ? Config.LOGD : Config.LOGV;
 
     // Menu ID
@@ -256,6 +256,7 @@ public class ComposeMessageActivity extends Activity
     private int mSignatureAutoAppend;       // Setting for Signature auto-append
     private int mScreenTimeout;             // Number of seconds that screen stays awake for
     private WakeLock mScreenTimeoutWakeLock;// Custom screen timeout
+    private boolean mBackToAllThreads;      // Always ack to all-threads
 
 
     private View mTopPanel;                 // View containing the recipient and subject editors
@@ -1609,6 +1610,7 @@ public class ComposeMessageActivity extends Activity
             mScreenTimeoutWakeLock = pm.newWakeLock(dimscreen ? PowerManager.SCREEN_DIM_WAKE_LOCK : PowerManager.SCREEN_BRIGHT_WAKE_LOCK, TAG);
             mScreenTimeoutWakeLock.setReferenceCounted(false);
         }
+        mBackToAllThreads = prefs.getBoolean(MessagingPreferenceActivity.BACK_TO_ALL_THREADS, false);
 
         setProgressBarVisibility(false);
 
@@ -1925,6 +1927,11 @@ public class ComposeMessageActivity extends Activity
                         finish();
                     }
                 });
+                // always return all threads
+                if(mBackToAllThreads) {
+                    goToConversationList();
+                }
+
                 return true;
         }
 

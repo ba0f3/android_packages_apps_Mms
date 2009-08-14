@@ -666,5 +666,8 @@
     <string name="pref_title_custom_screen_timeout_dim">Auto dim screen</string>
     <string name="pref_summaryon_custom_screen_timeout_dim">Screen stays awake but may be dimmed to save battery power</string>
     <string name="pref_summaryoff_custom_screen_timeout_dim">Screen is on at full brightness</string>
+
+    <string name="pref_title_back_to_all_threads">Back to all threads</string>
+    <string name="pref_summary_back_to_all_threads">Always go to all-threads when Back button pressed</string>
 </resources>
 
