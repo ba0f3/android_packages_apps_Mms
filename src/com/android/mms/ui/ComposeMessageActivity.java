@@ -168,8 +168,8 @@ public class ComposeMessageActivity extends Activity
     public static final int REQUEST_CODE_CREATE_SLIDESHOW = 16;
 
     private static final String TAG = "ComposeMessageActivity";
-    private static final boolean DEBUG = true;
-    private static final boolean TRACE = true;
+    private static final boolean DEBUG = false;
+    private static final boolean TRACE = false;
     private static final boolean LOCAL_LOGV = DEBUG ? Config.LOGD : Config.LOGV;
 
     // Menu ID
