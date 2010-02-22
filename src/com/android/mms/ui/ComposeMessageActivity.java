@@ -1621,6 +1621,9 @@ public class ComposeMessageActivity extends Activity
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
+        mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
+
         setContentView(R.layout.compose_message_activity);
         setProgressBarVisibility(false);
 
@@ -2920,8 +2923,6 @@ public class ComposeMessageActivity extends Activity
     }
 
     private void initActivityState(Bundle bundle, Intent intent) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
-        mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
 
         if (bundle != null) {
             String recipients = bundle.getString("recipients");
