@@ -294,6 +294,6 @@ public class MessageItem {
             " address: " + mAddress +
             " contact: " + mContact +
             " read: " + mReadReport +
-            " delivery report: " + mDeliveryReport;
+            " delivery status: " + mDeliveryStatus;
     }
 }
