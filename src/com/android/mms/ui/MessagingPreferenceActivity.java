@@ -55,6 +55,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final String NOTIFICATION_LED         = "pref_key_mms_notification_led";
     public static final String NOTIFICATION_LED_COLOR   = "pref_key_mms_notification_led_color";
     public static final String NOTIFICATION_VIBRATE_PATTERN = "pref_key_mms_notification_vibrate_pattern";
+	public static final String BLACK_BACKGROUND      = "pref_key_mms_black_background";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;

@@ -220,6 +220,7 @@ public class ComposeMessageActivity extends Activity
 
     private boolean mExitOnSent;            // Should we finish() after sending a message?
     private boolean mSendOnEnter;
+	private boolean mBlackBackground;       // Option for switch background from white to black
 
     private View mTopPanel;                 // View containing the recipient and subject editors
     private View mBottomPanel;              // View containing the text editor, send button, ec.
@@ -1624,7 +1625,12 @@ public class ComposeMessageActivity extends Activity
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences((Context)ComposeMessageActivity.this);
         mSendOnEnter = prefs.getBoolean(MessagingPreferenceActivity.SEND_ON_ENTER, true);
 
-        setContentView(R.layout.compose_message_activity);
+		mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
+		if(!mBlackBackground) {
+            setContentView(R.layout.compose_message_activity);
+        } else {
+            setContentView(R.layout.compose_message_activity_black);
+        }
         setProgressBarVisibility(false);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE |

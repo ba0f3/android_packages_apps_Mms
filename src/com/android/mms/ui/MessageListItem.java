@@ -89,6 +89,7 @@ public class MessageListItem extends LinearLayout implements
     private TextView mDownloadingLabel;
     private Handler mHandler;
     private MessageItem mMessageItem;
+	private boolean mBlackBackground;
 
     public MessageListItem(Context context) {
         super(context);
@@ -107,8 +108,9 @@ public class MessageListItem extends LinearLayout implements
         mRightStatusIndicator = (ImageView) findViewById(R.id.right_status_indicator);
     }
 
-    public void bind(MessageItem msgItem) {
+    public void bind(MessageItem msgItem, Boolean blackBackground) {
         mMessageItem = msgItem;
+		mBlackBackground = blackBackground;
 
         setLongClickable(false);
 
@@ -306,7 +308,10 @@ public class MessageListItem extends LinearLayout implements
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             // Make the timestamp text not as dark
             int color = mContext.getResources().getColor(R.color.timestamp_color);
-            buf.setSpan(new ForegroundColorSpan(color), startOffset, buf.length(),
+            if(mBlackBackground) {
+				color = mContext.getResources().getColor(R.color.timestamp_color_grey);
+	        }
+			buf.setSpan(new ForegroundColorSpan(color), startOffset, buf.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         if (highlight != null) {
@@ -460,18 +465,33 @@ public class MessageListItem extends LinearLayout implements
     private void drawLeftStatusIndicator(int msgBoxId) {
         switch (msgBoxId) {
             case Mms.MESSAGE_BOX_INBOX:
-                mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightblue);
-                break;
+                //mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightblue);
+                if(!mBlackBackground) {
+					mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightblue);
+                } else {
+                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightgrey);
+                }
+				break;
 
             case Mms.MESSAGE_BOX_DRAFTS:
             case Sms.MESSAGE_TYPE_FAILED:
             case Sms.MESSAGE_TYPE_QUEUED:
             case Mms.MESSAGE_BOX_OUTBOX:
-                mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
+                //mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
+				if(!mBlackBackground) {
+				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
+                } else {
+                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
+                }
                 break;
 
             default:
-                mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
+                //mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
+				if(!mBlackBackground) {
+				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
+                } else {
+                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
+                }
                 break;
         }
     }
