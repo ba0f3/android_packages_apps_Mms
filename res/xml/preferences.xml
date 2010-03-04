@@ -124,6 +124,14 @@
                         android:title="@string/pref_title_mms_conversation_font_size"
                         android:summary="@string/pref_summary_mms_conversation_font_size"
                         android:defaultValue="18" />
+	<CheckBoxPreference android:key="pref_key_conversation_hide_names"
+					    android:title="@string/pref_title_conversation_hide_names"
+					    android:summary="@string/pref_summary_conversation_hide_names"
+					    android:defaultValue="false" />
+	<CheckBoxPreference android:key="pref_key_conversation_left_right"
+					    android:title="@string/pref_title_conversation_left_right"
+					    android:summary="@string/pref_summary_conversation_left_right"
+					    android:defaultValue="false" />
   </PreferenceCategory>
 
   <PreferenceCategory android:title="@string/pref_extra_settings">

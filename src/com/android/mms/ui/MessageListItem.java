@@ -56,6 +56,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.view.Gravity;
 
 import com.android.mms.R;
 import com.android.mms.data.WorkingMessage;
@@ -90,6 +91,8 @@ public class MessageListItem extends LinearLayout implements
     private Handler mHandler;
     private MessageItem mMessageItem;
 	private boolean mBlackBackground;
+	private boolean mHideNames;
+	private boolean mAlternateMsg;
 
     public MessageListItem(Context context) {
         super(context);
@@ -108,9 +111,11 @@ public class MessageListItem extends LinearLayout implements
         mRightStatusIndicator = (ImageView) findViewById(R.id.right_status_indicator);
     }
 
-    public void bind(MessageItem msgItem, Boolean blackBackground) {
+    public void bind(MessageItem msgItem, Boolean blackBackground, Boolean hideNames, Boolean alternateMsg) {
         mMessageItem = msgItem;
 		mBlackBackground = blackBackground;
+		mHideNames = hideNames;
+		mAlternateMsg = alternateMsg;
 
         setLongClickable(false);
 
@@ -275,6 +280,9 @@ public class MessageListItem extends LinearLayout implements
     private CharSequence formatMessage(String contact, String body, String subject,
                                        String timestamp, String highlight) {
         CharSequence template = mContext.getResources().getText(R.string.name_colon);
+		if (mHideNames) {
+			template = mContext.getResources().getText(R.string.name_colon_hide);
+		}
         SpannableStringBuilder buf =
             new SpannableStringBuilder(TextUtils.replace(template,
                 new String[] { "%s" },
@@ -482,6 +490,10 @@ public class MessageListItem extends LinearLayout implements
 				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
                 } else {
                     mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
+					/*if (mAlternateMsg) {
+						((LinearLayout) mMsgListItem).setGravity(Gravity.RIGHT);
+						((LinearLayout) mMsgListItem).setPadding(50,0,0,0);
+					}*/
                 }
                 break;
 
@@ -490,6 +502,10 @@ public class MessageListItem extends LinearLayout implements
 				if(!mBlackBackground) {
 				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
                 } else {
+					if (mAlternateMsg) {
+						((LinearLayout) mMsgListItem).setGravity(Gravity.RIGHT);
+						((LinearLayout) mMsgListItem).setPadding(50,0,0,0);
+					}
                     mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
                 }
                 break;
