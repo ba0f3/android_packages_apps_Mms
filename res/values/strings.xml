@@ -97,6 +97,8 @@
     <string name="downloading">Downloading</string>
     <!-- Formatting for prepending MMS message text with sender's name. -->
     <string name="name_colon"><b><xliff:g id="name" example="Me">%s</xliff:g></b>": "</string>
+	<!-- Faruq: Hide names: -->
+	<string name="name_colon_hide">""</string>
     <!-- Formatting for subject displayed inline, prepended to MMS message text -->
     <string name="inline_subject">"&lt;Subject: <xliff:g id="subject">%s</xliff:g>&gt;"</string>
     <!-- Text to display when the actual text is inaccessible due to DRM protection -->
@@ -706,9 +708,18 @@
     <string name="pref_title_mms_black_background">Black Background</string>
     <string name="pref_summary_mms_black_background">Enable/disable black background in conversations</string>
 
-	<!-- EditText setting for conversation font-size -->
-    <string name="pref_title_mms_conversation_font_size">Font size</string>
+	<!-- Pref setting for conversation font-size -->
+    <string name="pref_title_mms_conversation_font_size">Font Size</string>
     <string name="pref_summary_mms_conversation_font_size">Message Font Size: <xliff:g id="count">%1$s</xliff:g></string>
+	<string name="pref_summary_mms_set_conversation_font_size">Set font size</string>
+
+	<!-- Toggle for Hiding names in conversation -->
+    <string name="pref_title_conversation_hide_names">Hide Names</string>
+    <string name="pref_summary_conversation_hide_names">Hide names in conversations</string>
+
+	<!-- Toggle for Left-Right positioning in conversation -->
+    <string name="pref_title_conversation_left_right">Alternate Message</string>
+    <string name="pref_summary_conversation_left_right">Alternate position of conversation according to sender/recipent</string>
 
     <!-- Change LED color for message notification -->
     <string name="pref_title_mms_notification_led_settings">LED settings</string>

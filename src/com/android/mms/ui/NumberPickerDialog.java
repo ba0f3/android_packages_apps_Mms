@@ -25,6 +25,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.internal.widget.NumberPicker;
 
@@ -63,9 +64,10 @@ public class NumberPickerDialog extends AlertDialog implements OnClickListener {
             int number,
             int rangeMin,
             int rangeMax,
-            int title) {
+            int title,
+			int desc) {
         this(context, com.android.internal.R.style.Theme_Dialog_Alert,
-                callBack, number, rangeMin, rangeMax, title);
+                callBack, number, rangeMin, rangeMax, title, desc);
     }
 
     /**
@@ -80,7 +82,8 @@ public class NumberPickerDialog extends AlertDialog implements OnClickListener {
             int number,
             int rangeMin,
             int rangeMax,
-            int title) {
+            int title,
+			int desc) {
         super(context, theme);
         mCallback = callBack;
         mInitialNumber = number;
@@ -95,7 +98,8 @@ public class NumberPickerDialog extends AlertDialog implements OnClickListener {
         View view = inflater.inflate(R.layout.number_picker, null);
         setView(view);
         mNumberPicker = (NonWrapNumberPicker) view.findViewById(R.id.number_picker);
-
+		((TextView) view.findViewById(R.id.desc)).setText(desc);
+		
         // initialize state
         mNumberPicker.setRange(rangeMin, rangeMax);
         mNumberPicker.setCurrent(number);
