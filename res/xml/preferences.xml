@@ -115,14 +115,21 @@
     </PreferenceScreen>
   </PreferenceCategory>
 
+  <PreferenceCategory android:title="@string/pref_cosmetic_settings">
+	<CheckBoxPreference android:key="pref_key_mms_black_background"
+                        android:title="@string/pref_title_mms_black_background"
+                        android:summary="@string/pref_summary_mms_black_background"
+                        android:defaultValue="true" />
+	<Preference android:key="pref_key_mms_conversation_font_size"
+                        android:title="@string/pref_title_mms_conversation_font_size"
+                        android:summary="@string/pref_summary_mms_conversation_font_size"
+                        android:defaultValue="18" />
+  </PreferenceCategory>
+
   <PreferenceCategory android:title="@string/pref_extra_settings">
     <CheckBoxPreference android:key="pref_key_mms_send_on_enter"
                         android:title="@string/pref_title_mms_send_on_enter"
                         android:summary="@string/pref_summary_mms_send_on_enter"
-                        android:defaultValue="true" />
-    <CheckBoxPreference android:key="pref_key_mms_black_background"
-                        android:title="@string/pref_title_mms_black_background"
-                        android:summary="@string/pref_summary_mms_black_background"
                         android:defaultValue="true" />
   </PreferenceCategory>
 </PreferenceScreen>

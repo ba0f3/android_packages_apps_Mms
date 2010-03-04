@@ -699,9 +699,16 @@
     <string name="pref_title_mms_send_on_enter">Send on Enter</string>
     <string name="pref_summary_mms_send_on_enter">Enable/disable send message when Enter key pressed</string>
 
+	<!-- Extra settings -->
+    <string name="pref_cosmetic_settings">Looks &amp; Aesthetics</string>
+
 	<!-- Toggle setting for enable/disable Black Background -->
     <string name="pref_title_mms_black_background">Black Background</string>
     <string name="pref_summary_mms_black_background">Enable/disable black background in conversations</string>
+
+	<!-- EditText setting for conversation font-size -->
+    <string name="pref_title_mms_conversation_font_size">Font size</string>
+    <string name="pref_summary_mms_conversation_font_size">Message Font Size: <xliff:g id="count">%1$s</xliff:g></string>
 
     <!-- Change LED color for message notification -->
     <string name="pref_title_mms_notification_led_settings">LED settings</string>

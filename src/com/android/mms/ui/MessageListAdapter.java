@@ -37,6 +37,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 
@@ -110,6 +111,7 @@ public class MessageListAdapter extends CursorAdapter {
     private Handler mMsgListItemHandler;
     private String mHighlight;
 	private boolean mBlackBackground;
+	private int mTextSize;
 
     public MessageListAdapter(
             Context context, Cursor c, ListView listView,
@@ -135,7 +137,8 @@ public class MessageListAdapter extends CursorAdapter {
         }
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
-    }
+    	mTextSize = prefs.getInt(MessagingPreferenceActivity.CONVERSATION_FONT_SIZE, 18);
+	}
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
@@ -198,7 +201,13 @@ public class MessageListAdapter extends CursorAdapter {
 		if(mBlackBackground) {
 			resId = R.layout.message_list_item_black;
 		}
-		return mInflater.inflate(resId, parent, false);
+		View retView = (View) mInflater.inflate(resId, parent, false);
+		
+		// Faruq: Set font size
+		TextView tv = (TextView) retView.findViewById(R.id.text_view);
+		tv.setTextSize(mTextSize);
+		
+		return retView;
     }
 
     public MessageItem getCachedMessageItem(String type, long msgId, Cursor c) {
