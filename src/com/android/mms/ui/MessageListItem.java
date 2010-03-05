@@ -479,6 +479,8 @@ public class MessageListItem extends LinearLayout implements
                 } else {
                     mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightgrey);
                 }
+				((LinearLayout) mMsgListItem).setGravity(Gravity.LEFT);
+				((LinearLayout) mMsgListItem).setPadding(5,0,0,0);
 				break;
 
             case Mms.MESSAGE_BOX_DRAFTS:
@@ -490,10 +492,10 @@ public class MessageListItem extends LinearLayout implements
 				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
                 } else {
                     mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
-					/*if (mAlternateMsg) {
+					if (mAlternateMsg) {
 						((LinearLayout) mMsgListItem).setGravity(Gravity.RIGHT);
 						((LinearLayout) mMsgListItem).setPadding(50,0,0,0);
-					}*/
+					}
                 }
                 break;
 
