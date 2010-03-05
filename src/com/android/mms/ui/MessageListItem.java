@@ -477,10 +477,16 @@ public class MessageListItem extends LinearLayout implements
                 if(!mBlackBackground) {
 					mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightblue);
                 } else {
-                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightgrey);
+                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
                 }
-				((LinearLayout) mMsgListItem).setGravity(Gravity.LEFT);
-				((LinearLayout) mMsgListItem).setPadding(5,0,0,0);
+				if (mAlternateMsg) {
+					((LinearLayout) mMsgListItem).setGravity(Gravity.LEFT);
+					((LinearLayout) mMsgListItem).setPadding(5,0,0,30);
+					//((LinearLayout) mMsgListItem).setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+					((TextView) mMsgListItem.findViewById(R.id.text_view)).setPadding(0,10,0,0);
+					//((TextView) mMsgListItem.findViewById(R.id.text_view)).setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+				}
+				((TextView) mMsgListItem.findViewById(R.id.text_view)).setTextColor(Color.WHITE);
 				break;
 
             case Mms.MESSAGE_BOX_DRAFTS:
@@ -492,9 +498,13 @@ public class MessageListItem extends LinearLayout implements
 				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
                 } else {
                     mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
+					((TextView) mMsgListItem.findViewById(R.id.text_view)).setTextColor(Color.DKGRAY);
 					if (mAlternateMsg) {
 						((LinearLayout) mMsgListItem).setGravity(Gravity.RIGHT);
-						((LinearLayout) mMsgListItem).setPadding(50,0,0,0);
+						((LinearLayout) mMsgListItem).setPadding(50,0,0,30);
+						//((LinearLayout) mMsgListItem).setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+						((TextView) mMsgListItem.findViewById(R.id.text_view)).setPadding(0,10,0,0);
+						//((TextView) mMsgListItem.findViewById(R.id.text_view)).setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 					}
                 }
                 break;
@@ -506,8 +516,12 @@ public class MessageListItem extends LinearLayout implements
                 } else {
 					if (mAlternateMsg) {
 						((LinearLayout) mMsgListItem).setGravity(Gravity.RIGHT);
-						((LinearLayout) mMsgListItem).setPadding(50,0,0,0);
+						((LinearLayout) mMsgListItem).setPadding(50,0,0,30);
+						//((LinearLayout) mMsgListItem).setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+						((TextView) mMsgListItem.findViewById(R.id.text_view)).setPadding(0,10,0,0);
+						//((TextView) mMsgListItem.findViewById(R.id.text_view)).setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 					}
+					((TextView) mMsgListItem.findViewById(R.id.text_view)).setTextColor(Color.DKGRAY);
                     mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
                 }
                 break;
