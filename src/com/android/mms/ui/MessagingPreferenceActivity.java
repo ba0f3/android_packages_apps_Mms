@@ -52,14 +52,14 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     public static final String AUTO_RETRIEVAL           = "pref_key_mms_auto_retrieval";
     public static final String RETRIEVAL_DURING_ROAMING = "pref_key_mms_retrieval_during_roaming";
     public static final String AUTO_DELETE              = "pref_key_auto_delete";
-    public static final String SEND_ON_ENTER			= "pref_key_mms_send_on_enter";
+    public static final String SEND_ON_ENTER            = "pref_key_mms_send_on_enter";
     public static final String NOTIFICATION_LED         = "pref_key_mms_notification_led";
     public static final String NOTIFICATION_LED_COLOR   = "pref_key_mms_notification_led_color";
     public static final String NOTIFICATION_VIBRATE_PATTERN = "pref_key_mms_notification_vibrate_pattern";
-	public static final String BLACK_BACKGROUND      = "pref_key_mms_black_background";
-	public static final String CONVERSATION_FONT_SIZE      = "pref_key_mms_conversation_font_size";
-	public static final String CONVERSATION_HIDE_NAMES = "pref_key_conversation_hide_names";
-	public static final String CONVERSATION_LEFT_RIGHT = "pref_key_conversation_left_right";
+    public static final String BLACK_BACKGROUND      = "pref_key_mms_black_background";
+    public static final String CONVERSATION_FONT_SIZE      = "pref_key_mms_conversation_font_size";
+    public static final String CONVERSATION_HIDE_NAMES = "pref_key_conversation_hide_names";
+    public static final String CONVERSATION_LEFT_RIGHT = "pref_key_conversation_left_right";
 
     // Menu entries
     private static final int MENU_RESTORE_DEFAULTS    = 1;
@@ -67,7 +67,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
     private Preference mSmsLimitPref;
     private Preference mMmsLimitPref;
     private Preference mManageSimPref;
-	private Preference mConversationFontSize;
+    private Preference mConversationFontSize;
     private Recycler mSmsRecycler;
     private Recycler mMmsRecycler;
 
@@ -79,7 +79,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
         mManageSimPref = findPreference("pref_key_manage_sim_messages");
         mSmsLimitPref = findPreference("pref_key_sms_delete_limit");
         mMmsLimitPref = findPreference("pref_key_mms_delete_limit");
-		mConversationFontSize = findPreference("pref_key_mms_conversation_font_size");
+        mConversationFontSize = findPreference("pref_key_mms_conversation_font_size");
 
         if (!TelephonyManager.getDefault().hasIccCard()) {
             // No SIM card, remove the SIM-related prefs
@@ -105,7 +105,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
         setSmsDisplayLimit();
         setMmsDisplayLimit();
 
-		setFontSizeDisplay();
+        setFontSizeDisplay();
     }
 
     private void setSmsDisplayLimit() {
@@ -120,12 +120,12 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
                         mMmsRecycler.getMessageLimit(this)));
     }
 
-	private int getFontSize() {
-		SharedPreferences mPrefs = mConversationFontSize.getSharedPreferences();
-		return mPrefs.getInt(MessagingPreferenceActivity.CONVERSATION_FONT_SIZE, 18);
-	}
+    private int getFontSize() {
+        SharedPreferences mPrefs = mConversationFontSize.getSharedPreferences();
+        return mPrefs.getInt(MessagingPreferenceActivity.CONVERSATION_FONT_SIZE, 18);
+    }
 
-	private void setFontSizeDisplay() {
+    private void setFontSizeDisplay() {
         mConversationFontSize.setSummary(
                 getString(R.string.pref_summary_mms_conversation_font_size,
                         getFontSize()));
@@ -158,7 +158,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
                     mSmsRecycler.getMessageMinLimit(),
                     mSmsRecycler.getMessageMaxLimit(),
                     R.string.pref_title_sms_delete,
-					R.string.pref_messages_to_save).show();
+                    R.string.pref_messages_to_save).show();
         } else if (preference == mMmsLimitPref) {
             new NumberPickerDialog(this,
                     mMmsLimitListener,
@@ -166,15 +166,15 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
                     mMmsRecycler.getMessageMinLimit(),
                     mMmsRecycler.getMessageMaxLimit(),
                     R.string.pref_title_mms_delete,
-					R.string.pref_messages_to_save).show();
-		} else if (preference == mConversationFontSize) {
-			new NumberPickerDialog(this,
+                    R.string.pref_messages_to_save).show();
+        } else if (preference == mConversationFontSize) {
+            new NumberPickerDialog(this,
                     mConversationFontSizeListener,
                     getFontSize(),
                     1,
                     30,
                     R.string.pref_title_mms_conversation_font_size,
-					R.string.pref_summary_mms_set_conversation_font_size).show();
+                    R.string.pref_summary_mms_set_conversation_font_size).show();
         } else if (preference == mManageSimPref) {
             startActivity(new Intent(this, ManageSimMessages.class));
         }
@@ -206,12 +206,12 @@ public class MessagingPreferenceActivity extends PreferenceActivity {
             }
     };
 
-	NumberPickerDialog.OnNumberSetListener mConversationFontSizeListener =
+    NumberPickerDialog.OnNumberSetListener mConversationFontSizeListener =
         new NumberPickerDialog.OnNumberSetListener() {
             public void onNumberSet(int limit) {
-				SharedPreferences.Editor editor = mConversationFontSize.getEditor();
-				editor.putInt(MessagingPreferenceActivity.CONVERSATION_FONT_SIZE, limit);
-				editor.commit();
+                SharedPreferences.Editor editor = mConversationFontSize.getEditor();
+                editor.putInt(MessagingPreferenceActivity.CONVERSATION_FONT_SIZE, limit);
+                editor.commit();
                 setFontSizeDisplay();
             }
     };

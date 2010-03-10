@@ -90,9 +90,9 @@ public class MessageListItem extends LinearLayout implements
     private TextView mDownloadingLabel;
     private Handler mHandler;
     private MessageItem mMessageItem;
-	private boolean mBlackBackground;
-	private boolean mHideNames;
-	private boolean mAlternateMsg;
+    private boolean mBlackBackground;
+    private boolean mHideNames;
+    private boolean mAlternateMsg;
 
     public MessageListItem(Context context) {
         super(context);
@@ -113,9 +113,9 @@ public class MessageListItem extends LinearLayout implements
 
     public void bind(MessageItem msgItem, Boolean blackBackground, Boolean hideNames, Boolean alternateMsg) {
         mMessageItem = msgItem;
-		mBlackBackground = blackBackground;
-		mHideNames = hideNames;
-		mAlternateMsg = alternateMsg;
+        mBlackBackground = blackBackground;
+        mHideNames = hideNames;
+        mAlternateMsg = alternateMsg;
 
         setLongClickable(false);
 
@@ -280,9 +280,9 @@ public class MessageListItem extends LinearLayout implements
     private CharSequence formatMessage(String contact, String body, String subject,
                                        String timestamp, String highlight) {
         CharSequence template = mContext.getResources().getText(R.string.name_colon);
-		if (mHideNames) {
-			template = mContext.getResources().getText(R.string.name_colon_hide);
-		}
+        if (mHideNames) {
+            template = mContext.getResources().getText(R.string.name_colon_hide);
+        }
         SpannableStringBuilder buf =
             new SpannableStringBuilder(TextUtils.replace(template,
                 new String[] { "%s" },
@@ -317,9 +317,9 @@ public class MessageListItem extends LinearLayout implements
             // Make the timestamp text not as dark
             int color = mContext.getResources().getColor(R.color.timestamp_color);
             if(mBlackBackground) {
-				color = mContext.getResources().getColor(R.color.timestamp_color_grey);
-	        }
-			buf.setSpan(new ForegroundColorSpan(color), startOffset, buf.length(),
+                color = mContext.getResources().getColor(R.color.timestamp_color_grey);
+            }
+            buf.setSpan(new ForegroundColorSpan(color), startOffset, buf.length(),
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         if (highlight != null) {
@@ -473,42 +473,24 @@ public class MessageListItem extends LinearLayout implements
     private void drawLeftStatusIndicator(int msgBoxId) {
         switch (msgBoxId) {
             case Mms.MESSAGE_BOX_INBOX:
-                //mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightblue);
-                if(!mBlackBackground) {
-					mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightblue);
-                } else {
-                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_lightgrey);
-                }
-				((LinearLayout) mMsgListItem).setGravity(Gravity.LEFT);
-				((LinearLayout) mMsgListItem).setPadding(5,0,0,0);
-				break;
+                mMsgListItem.setBackgroundResource(mBlackBackground ? R.drawable.listitem_background_lightgrey : R.drawable.listitem_background_lightblue);
+                ((LinearLayout) mMsgListItem).setPadding(5,0,0,0);
+                break;
 
             case Mms.MESSAGE_BOX_DRAFTS:
             case Sms.MESSAGE_TYPE_FAILED:
             case Sms.MESSAGE_TYPE_QUEUED:
             case Mms.MESSAGE_BOX_OUTBOX:
-                //mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
-				if(!mBlackBackground) {
-				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
-                } else {
-                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
-					if (mAlternateMsg) {
-						((LinearLayout) mMsgListItem).setGravity(Gravity.RIGHT);
-						((LinearLayout) mMsgListItem).setPadding(50,0,0,0);
-					}
+                mMsgListItem.setBackgroundResource(mBlackBackground ? R.drawable.listitem_background_black : R.drawable.listitem_background);
+                if (mAlternateMsg) {
+                    ((LinearLayout) mMsgListItem).setPadding(25,0,0,0);
                 }
                 break;
 
             default:
-                //mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
-				if(!mBlackBackground) {
-				    mMsgListItem.setBackgroundResource(R.drawable.listitem_background);
-                } else {
-					if (mAlternateMsg) {
-						((LinearLayout) mMsgListItem).setGravity(Gravity.RIGHT);
-						((LinearLayout) mMsgListItem).setPadding(50,0,0,0);
-					}
-                    mMsgListItem.setBackgroundResource(R.drawable.listitem_background_black);
+                mMsgListItem.setBackgroundResource(mBlackBackground ? R.drawable.listitem_background_black : R.drawable.listitem_background);
+                if (mAlternateMsg) {
+                    ((LinearLayout) mMsgListItem).setPadding(25,0,0,0);
                 }
                 break;
         }

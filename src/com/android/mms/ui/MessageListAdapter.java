@@ -110,10 +110,10 @@ public class MessageListAdapter extends CursorAdapter {
     private OnDataSetChangedListener mOnDataSetChangedListener;
     private Handler mMsgListItemHandler;
     private String mHighlight;
-	private boolean mBlackBackground;
-	private int mTextSize;
-	private boolean mHideNames;
-	private boolean mAlternateMsg;
+    private boolean mBlackBackground;
+    private int mTextSize;
+    private boolean mHideNames;
+    private boolean mAlternateMsg;
 
     public MessageListAdapter(
             Context context, Cursor c, ListView listView,
@@ -137,12 +137,12 @@ public class MessageListAdapter extends CursorAdapter {
         } else {
             mColumnsMap = new ColumnsMap(c);
         }
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
-    	mTextSize = prefs.getInt(MessagingPreferenceActivity.CONVERSATION_FONT_SIZE, 18);
-		mHideNames = prefs.getBoolean(MessagingPreferenceActivity.CONVERSATION_HIDE_NAMES, false);
-		mAlternateMsg = prefs.getBoolean(MessagingPreferenceActivity.CONVERSATION_LEFT_RIGHT, false);
-	}
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        mBlackBackground = prefs.getBoolean(MessagingPreferenceActivity.BLACK_BACKGROUND, false);
+        mTextSize = prefs.getInt(MessagingPreferenceActivity.CONVERSATION_FONT_SIZE, 18);
+        mHideNames = prefs.getBoolean(MessagingPreferenceActivity.CONVERSATION_HIDE_NAMES, false);
+        mAlternateMsg = prefs.getBoolean(MessagingPreferenceActivity.CONVERSATION_LEFT_RIGHT, false);
+    }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
@@ -202,16 +202,16 @@ public class MessageListAdapter extends CursorAdapter {
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         int resId = R.layout.message_list_item;
-		if(mBlackBackground) {
-			resId = R.layout.message_list_item_black;
-		}
-		View retView = (View) mInflater.inflate(resId, parent, false);
-		
-		// Faruq: Set font size
-		TextView tv = (TextView) retView.findViewById(R.id.text_view);
-		tv.setTextSize(mTextSize);
-		
-		return retView;
+        if(mBlackBackground) {
+            resId = R.layout.message_list_item_black;
+        }
+        View retView = (View) mInflater.inflate(resId, parent, false);
+        
+        // Faruq: Set font size
+        TextView tv = (TextView) retView.findViewById(R.id.text_view);
+        tv.setTextSize(mTextSize);
+        
+        return retView;
     }
 
     public MessageItem getCachedMessageItem(String type, long msgId, Cursor c) {
